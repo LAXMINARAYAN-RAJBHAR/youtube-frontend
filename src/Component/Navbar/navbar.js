@@ -35,7 +35,7 @@ const Navbar = ({setSideNavbarFunc, sideNavbar}) => {
         <ListIcon sx={{ color: "white" }} />
       </div>
       <img src={MyLogo} alt="App Logo" className="mylogo" />
-      <span className="logoText">GolTube</span>
+      <span className="logoText">RollamRoll</span>
     </div>
 
     {/* MIDDLE: Search */}

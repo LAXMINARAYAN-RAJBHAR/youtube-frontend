@@ -32,73 +32,107 @@ const HomePage = ({ sideNavbar }) => {
     "Watched",
   ];
 
-  // Array of video thumbnails
   const videos = [
     {
       id: 1,
       thumbnail:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s",
       title: "Sample Video 1",
+      duration: "28:05",
+      channel: "User1"
     },
     {
       id: 2,
       thumbnail: "https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg",
       title: "Sample Video 2",
+      duration: "30:00",
+      channel: "Chandrakala"
     },
     {
       id: 3,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyNTbTLzlbDj6RSQdV6imNyxNywT3pchKKg&s",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyNTbTLzlbDj6RSQdV6imNyxNywT3pchKKg&s",
       title: "3d Lion Stock Photo",
+      duration: "60:00",
+      channel: "Achhelal"
     },
     {
       id: 4,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWv_QvC-7P4_8Ubbg2rwn0Om4APOgf6B3yA&s",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWv_QvC-7P4_8Ubbg2rwn0Om4APOgf6B3yA&s",
       title: "Sample Video 4",
+      duration: "10:00",
+      channel: "Karthik"
     },
     {
       id: 5,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZleDiTkppd2k7GVmREMQRs8D8JBbNXuuxUA&s",
-      title: "8k Wallpaper 3d Photos, Download The BEST Free 8k Wallpaper 3d Stock Photos & HD Images",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZleDiTkppd2k7GVmREMQRs8D8JBbNXuuxUA&s",
+      title: "8k Wallpaper 3d Photos",
+      duration: "18:00",
+      channel: "Annu"
     },
     {
       id: 6,
-      thumbnail: "https://damassets.autodesk.net/content/dam/autodesk/www/industry/3d-animation/create-beautiful-3d-animations-thumb-1204x677.jpg",
-      title: "3D Animation Solutions | Software For Film & TV | Autodesk",
+      thumbnail:
+        "https://damassets.autodesk.net/content/dam/autodesk/www/industry/3d-animation/create-beautiful-3d-animations-thumb-1204x677.jpg",
+      title: "3D Animation Solutions | Autodesk",
+      duration: "08:00",
+      channel: "Jyoti"
     },
     {
       id: 7,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMxQZtpZz8NgMYzzNMiBm-n4h2oGYovjK2lQ&s",
-      title: "3D Shapes | Types, Properties & Examples Video",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMxQZtpZz8NgMYzzNMiBm-n4h2oGYovjK2lQ&s",
+      title: "3D Shapes | Types, Properties & Examples",
+      duration: "28:00",
+      channel: "Sarita"
     },
     {
       id: 8,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5izd-jLAR_UjqnUULPW42Pv_LIpL0W60cQ&s",
-      title: "3d Graphics Pictures | Download Free Images on Unsplash",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5izd-jLAR_UjqnUULPW42Pv_LIpL0W60cQ&s",
+      title: "3d Graphics Pictures | Unsplash",
+      duration: "20:00",
+      channel: "Jaynarayan"
     },
     {
       id: 9,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6EQg2_-8zTqUk1YRvLpJinJk67VF0wEZfg&s",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6EQg2_-8zTqUk1YRvLpJinJk67VF0wEZfg&s",
       title: "Scenery 3d wallpaper | homify",
-    },
-    {
-      id: 9,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5r-8k6FyUEN9OYQu5WgyyNqT8lrqgw7dCQ&s",
-      title: "3D Nature Images – Browse 5,796,113 Stock Photos, Vectors, and Video | Adobe Stock",
+      duration: "10:00",
+      channel: "Shyamnarayan"
     },
     {
       id: 10,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s",
-      title: "5,364,800+ 3d Images Stock Photos, Pictures & Royalty-Free Images - iStock",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5r-8k6FyUEN9OYQu5WgyyNqT8lrqgw7dCQ&s",
+      title: "3D Nature Images | Adobe Stock",
+      duration: "12:00",
+      channel: "Sheru"
     },
     {
       id: 11,
-      thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s",
-      title: "Understanding 3D Computer Graphics: A Comprehensive Guide - Boston Institute Of Analytics",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s",
+      title: "5,364,800+ 3d Images | iStock",
+      duration: "13:30",
+      channel: "Moti"
+    },
+    {
+      id: 12,
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s",
+      title: "Understanding 3D Computer Graphics",
+      duration: "20:50",
+      channel: "Sandeep"
     },
   ];
 
   return (
     <div className="homePage">
+      {/* Category options bar */}
       <div className={`homePage_options ${sideNavbar ? "sidebar-open" : ""}`}>
         <div className="homePage_options_track">
           {options.map((item, index) => (
@@ -109,20 +143,39 @@ const HomePage = ({ sideNavbar }) => {
         </div>
       </div>
 
+      {/* Main video grid */}
       <div
         className={`home_mainPage ${sideNavbar ? "sidebar-open" : "sidebar-closed"}`}
       >
         <div className="youtube_VideoGrid">
           {videos.map((video) => (
             <div key={video.id} className="youtube_thumbnailBox">
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="youtube_thumbnailPic"
-              />
-              <p className="youtube_videoTitle">{video.title}</p>
+              <div className="youtube_thumbnailWrapper">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="youtube_thumbnailPic"
+                />
+                <div className="youtube_timingThumbnail">{video.duration}</div>
+              </div>
+
+              <div className="youtubeTitleBox">
+                <div className="youtubeBoxProfile">
+                  <img
+                    src="https://api.dicebear.com/7.x/initials/svg?seed=User1"
+                    alt="profile"
+                    className="youtube_thumbnail_Profile"
+                  />
+                  <p className="youtube_ChannelName">{video.channel}</p>
+                </div>
+                <div className="youtubeVideoInfo">
+                  <p className="youtube_videoTitle">{video.title}</p>
+                  <p className="youtubeVideo_Views">3 Likes</p>
+                </div>
+              </div>
             </div>
-          ))}
+          ))}{" "}
+          {/* ✅ only ONE closing ))} */}
         </div>
       </div>
     </div>
