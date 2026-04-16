@@ -3,48 +3,34 @@ import "./navbar.css";
 import ListIcon from "@mui/icons-material/List";
 import MyLogo from "../../assests/mylogo.png";
 import SearchIcon from "@mui/icons-material/Search";
-import MicIcon from "@mui/icons-material/Mic";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import PersonIcon from "@mui/icons-material/Person";
-import SideNavbar from "../SideNavbar/sideNavbar";
 import { Link } from "react-router-dom";
-const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
-  const [userPic, setUserPic] = useState(
-    "https://athenabpo.com/wp-content/uploads/2016/09/Headshot-Blank-Person-Circle-300x300.gif",
-  );
-  const [navbarModal, setnavbarModal] = useState(false);
 
-  const handleClickModal = () => {
-    setnavbarModal((prev) => !prev);
-  };
-  const sideNavbarFunc = () => {
-    setSideNavbarFunc(!sideNavbar);
-  };
-  //   const SideNavbar = ({ sideNavbar }) => {
-  //   return (
-  //     <div className={`sideNavbar ${!sideNavbar ? 'hidden' : ''}`}>
-  //       {/* your sidebar content */}
-  //     </div>
-  //   );
-  // }
+const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
+  const [userPic] = useState(
+    "https://athenabpo.com/wp-content/uploads/2016/09/Headshot-Blank-Person-Circle-300x300.gif"
+  );
+  const [navbarModal, setNavbarModal] = useState(false);
+
+  const sideNavbarFunc = () => setSideNavbarFunc(!sideNavbar);
+
   return (
     <div className="navbar">
-      {/* LEFT: Hamburger + Logo */}
+
+      {/* LEFT */}
       <div className="navbar-left">
         <div className="navbarHamberger" onClick={sideNavbarFunc}>
           <ListIcon sx={{ color: "white" }} />
         </div>
-
-        {/* ✅ Wrap logo in Link to route to homepage */}
-        <Link to="/" className="navbar-logo-link">
+        <Link to="/" className="navbar-logo-link">   {/* ✅ Link is display:flex now via CSS */}
           <img src={MyLogo} alt="App Logo" className="mylogo" />
           <span className="logoText">RollamRoll</span>
         </Link>
       </div>
 
-      {/* MIDDLE: Search */}
+      {/* MIDDLE */}
       <div className="navbar-middle">
         <div className="navbar_searchBox">
           <input
@@ -61,17 +47,14 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
         </div>
       </div>
 
-      {/* RIGHT: Icons */}
+      {/* RIGHT */}
       <div className="navbar-right">
-        <VideoCameraFrontIcon
-          sx={{ fontSize: "30px", cursor: "pointer", color: "white" }}
-        />
-        <NotificationsActiveIcon
-          sx={{ fontSize: "30px", cursor: "pointer", color: "white" }}
-        />
+        <VideoCameraFrontIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+        <NotificationsActiveIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
         <img
-          onClick={handleClickModal}
+          onClick={() => setNavbarModal((prev) => !prev)}
           src={userPic}
+          alt="User"
           className="navbar-right-logo"
         />
         {navbarModal && (
@@ -82,6 +65,7 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
           </div>
         )}
       </div>
+
     </div>
   );
 };

@@ -40,37 +40,40 @@
   border-radius: 50%;
 }
 
+/* ✅ Fix: Cap navbar-left width so it never overlaps middle */
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 8px;
-  max-width: 220px;       /* ✅ hard cap so it can't bleed */
   flex-shrink: 0;
+  max-width: 220px;
 }
 
+/* ✅ Fix: Smaller logo so it fits inside 56px navbar */
 .mylogo {
-  height: 36px;          /* ✅ reduced from 50px */
+  height: 36px;
   width: 36px;
   border-radius: 50%;
-  object-fit: cover;     /* ✅ cover not contain */
-  flex-shrink: 0;
+  object-fit: cover;       /* was 'contain' — cover fills the circle cleanly */
 }
+/* ✅ Fix: Link must be flex so logo + text sit side by side */
 .navbar-logo-link {
   display: flex;
   align-items: center;
+  gap: 8px;
   text-decoration: none;
-  overflow: hidden;      /* ✅ prevent bleed */
+  overflow: hidden;        /* prevents bleeding outside navbar */
+  flex-shrink: 0;
 }
 /* Logo Text */
+/* ✅ Fix: Remove position:unset, add white-space:nowrap */
 .logoText {
   font-family: 'Titan One', cursive;
-  font-size: 18px;        /* ✅ slightly reduced */
-  letter-spacing: 1px;
+  font-size: 18px;
+  letter-spacing: 1.5px;
   color: white;
-  white-space: nowrap;    /* ✅ prevents wrapping */
-  position: static;       /* ✅ remove 'unset' */
-  text-shadow: 0 0 8px rgba(255, 0, 150, 0.7),
-               0 0 12px rgba(0, 200, 255, 0.6);
+  white-space: nowrap;     /* prevents text wrapping and pushing height */
+  text-decoration: none;
 }
 .navbar-logo {
   height: 50px;
@@ -156,12 +159,15 @@
     border-radius: 50%;
     cursor: pointer;
 }
-.navbar-modal{
-    position: absolute;
-    top: 35px;
-    width: 100%;
-    z-index: 20;
-    color: white;
+/* ✅ Fix: Modal needs min-width — don't rely on 100% of a small parent */
+.navbar-modal {
+  position: absolute;
+  top: 40px;
+  right: 0;                /* align to right edge of .navbar-right */
+  min-width: 140px;
+  z-index: 20;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .navbar-modal-option{
     background-color: rgb(85, 85, 85);
