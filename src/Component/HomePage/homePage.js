@@ -1,5 +1,6 @@
 import React from "react";
 import "./homePage.css";
+import { Link } from 'react-router-dom';
 
 const HomePage = ({ sideNavbar }) => {
   const options = [
@@ -34,7 +35,7 @@ const HomePage = ({ sideNavbar }) => {
 
   const videos = [
     {
-      id: 1,
+      id: 7679,
       thumbnail:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s",
       title: "Sample Video 1",
@@ -150,14 +151,14 @@ const HomePage = ({ sideNavbar }) => {
         <div className="youtube_VideoGrid">
           {videos.map((video) => (
             <div key={video.id} className="youtube_thumbnailBox">
-              <div className="youtube_thumbnailWrapper">
+              <Link to={'/watch/${video.id}'} className="youtube_thumbnailWrapper">
                 <img
                   src={video.thumbnail}
                   alt={video.title}
                   className="youtube_thumbnailPic"
                 />
                 <div className="youtube_timingThumbnail">{video.duration}</div>
-              </div>
+              </Link>
 
               <div className="youtubeTitleBox">
                 <div className="youtubeBoxProfile">
