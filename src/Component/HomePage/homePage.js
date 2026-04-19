@@ -38,16 +38,16 @@ const HomePage = ({ sideNavbar }) => {
       id: 7679,
       thumbnail:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s",
-      title: "Sample Video 1",
-      duration: "28:05",
-      channel: "User1"
+      title: "Big Buck Bunny open-source film",
+      duration: "09:56",
+      channel: "Laxminarayan"
     },
     {
       id: 2,
       thumbnail: "https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg",
       title: "Sample Video 2",
       duration: "30:00",
-      channel: "Chandrakala"
+      channel: "Mummy"
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ const HomePage = ({ sideNavbar }) => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyNTbTLzlbDj6RSQdV6imNyxNywT3pchKKg&s",
       title: "3d Lion Stock Photo",
       duration: "60:00",
-      channel: "Achhelal"
+      channel: "Papa"
     },
     {
       id: 4,
@@ -136,8 +136,8 @@ const HomePage = ({ sideNavbar }) => {
       {/* Category options bar */}
       <div className={`homePage_options ${sideNavbar ? "sidebar-open" : ""}`}>
         <div className="homePage_options_track">
-          {options.map((item, index) => (
-            <div key={item + index} className="homePage_option">
+          {options.map((item) => (
+            <div key={item} className="homePage_option">
               {item}
             </div>
           ))}
@@ -151,10 +151,10 @@ const HomePage = ({ sideNavbar }) => {
         <div className="youtube_VideoGrid">
           {videos.map((video) => (
             <div key={video.id} className="youtube_thumbnailBox">
-              <Link to={'/watch/${video.id}'} className="youtube_thumbnailWrapper">
+              <Link to={`/watch/${video.id}`} className="youtube_thumbnailWrapper">
                 <img
                   src={video.thumbnail}
-                  alt={video.title}
+                  alt={`Thumbnail for ${video.title}`}
                   className="youtube_thumbnailPic"
                 />
                 <div className="youtube_timingThumbnail">{video.duration}</div>
@@ -163,10 +163,11 @@ const HomePage = ({ sideNavbar }) => {
               <div className="youtubeTitleBox">
                 <div className="youtubeBoxProfile">
                   <img
-                    src="https://api.dicebear.com/7.x/initials/svg?seed=User1"
-                    alt="profile"
+                    src={`https://api.dicebear.com/7.x/initials/svg?seed=${video.channel}`}
+                    alt={video.channel}
                     className="youtube_thumbnail_Profile"
                   />
+                  {/* Bright style applied to ALL channel names */}
                   <p className="youtube_ChannelName">{video.channel}</p>
                 </div>
                 <div className="youtubeVideoInfo">
@@ -175,8 +176,7 @@ const HomePage = ({ sideNavbar }) => {
                 </div>
               </div>
             </div>
-          ))}{" "}
-          {/* ✅ only ONE closing ))} */}
+          ))} 
         </div>
       </div>
     </div>

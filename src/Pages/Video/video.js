@@ -9,14 +9,14 @@ const Video = () => {
       <div className="videoPostSection">
         <div className="video_youtube">
           <video controls autoPlay className="video_youtube_video">
-            <source src={"https://res.cloudinary.com/mashhuudanny/video/upload/v1720350210/xo81mxhcvjckkw1tdp62.mp4"} type="video/mp4"/>
-            <source src={"https://res.cloudinary.com/mashhuudanny/video/upload/v1720350210/xo81mxhcvjckkw1tdp62.mp4"} type="video/webm"/>
+            <source src={"https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"} type="video/mp4"/>
+            <source src={"https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"} type="video/webm"/>
             Your browser does not support the video tag.
           </video>
         </div>
 
         <div className="video_youtubeAbout">
-          <div className="video_uTubeTitle">{"Javascript for Beginners"}</div>
+          <div className="video_uTubeTitle">{"Big Buck Bunny open-source film"}</div>
 
           <div className="youtube_video_ProfileBlock">
             <div className="youtube_video_ProfileBlock_left">

@@ -171,5 +171,18 @@
   flex-shrink: 0;
   background-color: #555;  /* ✅ grey fallback when image fails to load */
 }
+.youtube_ChannelName {
+  font-weight: bold;
+  color: #030a01; /* neon black */
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect for extra pop */
+.youtube_ChannelName:hover {
+  color: #d4b70e; /* electric yellow */
+  text-shadow: 0 0 12px rgba(0, 255, 255, 1);
+}
+
 
 
