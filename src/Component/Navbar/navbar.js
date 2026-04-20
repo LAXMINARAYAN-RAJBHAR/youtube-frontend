@@ -6,15 +6,21 @@ import SearchIcon from "@mui/icons-material/Search";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
   const [userPic] = useState(
     "https://athenabpo.com/wp-content/uploads/2016/09/Headshot-Blank-Person-Circle-300x300.gif"
   );
   const [navbarModal, setNavbarModal] = useState(false);
+  const navigate = useNavigate();
 
-  const sideNavbarFunc = () => setSideNavbarFunc(!sideNavbar);
+  const sideNavbarFunc = () => { setSideNavbarFunc(!sideNavbar); };
+
+  const handleprofile =()=>{
+    navigate('/user/7697');
+    setNavbarModal(false);
+  }
 
   return (
     <div className="navbar">
@@ -24,7 +30,7 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
         <div className="navbarHamberger" onClick={sideNavbarFunc}>
           <ListIcon sx={{ color: "white" }} />
         </div>
-        <Link to="/" className="navbar-logo-link">   {/* ✅ Link is display:flex now via CSS */}
+        <Link to="/" className="navbar-logo-link">
           <img src={MyLogo} alt="App Logo" className="mylogo" />
           <span className="logoText">RollamRoll</span>
         </Link>
@@ -59,7 +65,7 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
         />
         {navbarModal && (
           <div className="navbar-modal">
-            <div className="navbar-modal-option">Profile</div>
+            <div className="navbar-modal-option" onClick={handleprofile}>Profile</div>
             <div className="navbar-modal-option">Logout</div>
             <div className="navbar-modal-option">Login</div>
           </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import './video.css';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
+import { Link } from 'react-router-dom';
 
 const Video = () => {
   return (
@@ -20,9 +21,11 @@ const Video = () => {
 
           <div className="youtube_video_ProfileBlock">
             <div className="youtube_video_ProfileBlock_left">
-              <div className="youtube_video_ProfileBlock_left_img">
+
+              <Link to={'/user/8998'} className="youtube_video_ProfileBlock_left_img">
                 <img className="youtube_video_ProfileBlock_left_image" src={'https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=18pid=imgDetMain'} />
-              </div>
+              </Link>
+
               <div className="youtubeVideo_subsView">
                 <div className="youtubePostProfileName"> {"user1"} </div>
                 <div className="youtubePostProfileSubs">{"2024-07-09"}</div>
