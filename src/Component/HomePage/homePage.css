@@ -26,12 +26,21 @@
 .homePage_options.sidebar-open {
   left: 274px;          /* sidebar open: shift right */
 }
-.homePage_options_track {    /* ✅ new wrapper div */
+.homePage_options_track {
   display: flex;
   gap: 10px;
   animation: scrollOptions 60s linear infinite;
   width: max-content;
+  cursor: grab;
+  user-select: none;
 }
+
+.homePage_options_track.dragging {
+  cursor: grabbing;
+  animation-play-state: paused;
+}
+
+/* Remove the old :hover pause rule — dragging handles it now */
 .homePage_options_track:hover {
   animation-play-state: paused;
 }
@@ -173,16 +182,16 @@
 }
 .youtube_ChannelName {
   font-weight: bold;
-  color: #030a01; /* neon black */
-  text-shadow: 0 0 8px rgba(57, 255, 20, 0.8);
-  transition: all 0.3s ease-in-out;
+  color: #00ffff; /* Neon cyan */
+  text-shadow: 0 0 5px #160303, 0 0 10px #00ffff, 0 0 20px #00ffff;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Hover effect for extra pop */
 .youtube_ChannelName:hover {
-  color: #d4b70e; /* electric yellow */
-  text-shadow: 0 0 12px rgba(0, 255, 255, 1);
+  color: #ff00ff; /* Neon magenta on hover */
+  text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 30px #ff00ff;
 }
+
 
 
 

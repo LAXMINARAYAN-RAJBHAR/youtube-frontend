@@ -183,65 +183,6 @@ const Video = () => {
 
         </div>
 
-        <div className="videoSuggestionsBlock">
-          <div className="video_suggestion_thumbnail">
-            <img src="https://i.ytimg.com/vi/x-FLu8sOt_U/maxresdefault.jpg" className="video_suggestion_thumbnail_img" />
-          </div>
-          <div className="video_suggestions_About">
-            <div className="video_suggestions_About_title">T20 2024 Worldcup Final IND Vs SA Last 5 overs #cricket #india</div>
-            <div className="video_suggestions_About_Profile">Cricket 320</div>
-            <div className="video_suggestions_About_Profile">360k views . 1 day ago</div>
-          </div>
-
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="video_suggestion_thumbnail">
-            <img src="https://i.ytimg.com/vi/x-FLu8sOt_U/maxresdefault.jpg" className="video_suggestion_thumbnail_img" />
-          </div>
-          <div className="video_suggestions_About">
-            <div className="video_suggestions_About_title">T20 2024 Worldcup Final IND Vs SA Last 5 overs #cricket #india</div>
-            <div className="video_suggestions_About_Profile">Cricket 320</div>
-            <div className="video_suggestions_About_Profile">360k views . 1 day ago</div>
-          </div>
-
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="video_suggestion_thumbnail">
-            <img src="https://i.ytimg.com/vi/x-FLu8sOt_U/maxresdefault.jpg" className="video_suggestion_thumbnail_img" />
-          </div>
-          <div className="video_suggestions_About">
-            <div className="video_suggestions_About_title">T20 2024 Worldcup Final IND Vs SA Last 5 overs #cricket #india</div>
-            <div className="video_suggestions_About_Profile">Cricket 320</div>
-            <div className="video_suggestions_About_Profile">360k views . 1 day ago</div>
-          </div>
-
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="video_suggestion_thumbnail">
-            <img src="https://i.ytimg.com/vi/x-FLu8sOt_U/maxresdefault.jpg" className="video_suggestion_thumbnail_img" />
-          </div>
-          <div className="video_suggestions_About">
-            <div className="video_suggestions_About_title">T20 2024 Worldcup Final IND Vs SA Last 5 overs #cricket #india</div>
-            <div className="video_suggestions_About_Profile">Cricket 320</div>
-            <div className="video_suggestions_About_Profile">360k views . 1 day ago</div>
-          </div>
-
-        </div>
-
-        <div className="videoSuggestionsBlock">
-          <div className="video_suggestion_thumbnail">
-            <img src="https://i.ytimg.com/vi/x-FLu8sOt_U/maxresdefault.jpg" className="video_suggestion_thumbnail_img" />
-          </div>
-          <div className="video_suggestions_About">
-            <div className="video_suggestions_About_title">T20 2024 Worldcup Final IND Vs SA Last 5 overs #cricket #india</div>
-            <div className="video_suggestions_About_Profile">Cricket 320</div>
-            <div className="video_suggestions_About_Profile">360k views . 1 day ago</div>
-          </div>
-
-        </div>
 </div>
 
     </div>
