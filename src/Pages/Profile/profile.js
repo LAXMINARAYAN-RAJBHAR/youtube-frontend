@@ -9,7 +9,7 @@ const Profile = ({ sideNavbar }) => {
     <div className="profile">
       <SideNavbar sideNavbar={sideNavbar} />
 
-      <div className="profile_page">
+      <div className={sideNavbar ? "profile_page" : "profile_page_inactive"}>
 
         <div className="profile_top_section">
           <div className="profile_top_section_profile">

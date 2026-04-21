@@ -1,22 +1,39 @@
-.profile{
+.profile {
     display: flex;
     width: 100%;
     padding: 10px 13px 0 13px;
     box-sizing: border-box;
     background-color: black;
     color: white;
+    position: relative; /* add this */
 }
-.profile_page{
+
+.profile_page {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
     flex: 1;
-    margin-left: 270px;
+    margin-left: 270px; /* sidebar width */
     color: white;
     margin-top: 56px;
     justify-content: center;
     align-items: center;
+    transition: margin-left 0.3s ease; /* add this */
 }
+
+.profile_page_inactive {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    flex: 1;
+    margin-left: 0px; /* add this */
+    color: white;
+    margin-top: 56px;
+    justify-content: center;
+    align-items: center;
+    transition: margin-left 0.3s ease; /* add this */
+}
+
 .profile_top_section{
     width: 100%;
     display: flex;
@@ -30,7 +47,7 @@
     border-radius: 50%;
     height: 100%;
 }
-.profile.top.section.About{
+.profile_top_section_About{
     display: flex;
     flex-direction: column;
     gap: 7px;

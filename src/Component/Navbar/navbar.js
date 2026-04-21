@@ -7,12 +7,14 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { Link, useNavigate } from "react-router-dom";
+import Login from "../Login/login";
 
 const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
   const [userPic] = useState(
     "https://athenabpo.com/wp-content/uploads/2016/09/Headshot-Blank-Person-Circle-300x300.gif"
   );
   const [navbarModal, setNavbarModal] = useState(false);
+  const [login,setLogin] = useState(false);
   const navigate = useNavigate();
 
   const sideNavbarFunc = () => { setSideNavbarFunc(!sideNavbar); };
@@ -20,6 +22,20 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
   const handleprofile =()=>{
     navigate('/user/7697');
     setNavbarModal(false);
+  }
+
+  const setLoginModal=()=>{
+    setLogin(false);
+  }
+
+  const onclickOfPopUpOption =(button)=>{
+    setNavbarModal(false);
+
+    if(button==="login"){
+      setLogin(true);
+    }else{
+
+    }
   }
 
   return (
@@ -55,7 +71,11 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
 
       {/* RIGHT */}
       <div className="navbar-right">
+
+        <Link to={'/763/upload'}>
         <VideoCameraFrontIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+        </Link>
+        
         <NotificationsActiveIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
         <img
           onClick={() => setNavbarModal((prev) => !prev)}
@@ -66,12 +86,15 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
         {navbarModal && (
           <div className="navbar-modal">
             <div className="navbar-modal-option" onClick={handleprofile}>Profile</div>
-            <div className="navbar-modal-option">Logout</div>
-            <div className="navbar-modal-option">Login</div>
+            <div className="navbar-modal-option" onClick={()=>onclickOfPopUpOption("logout")}>Logout</div>
+            <div className="navbar-modal-option" onClick={()=>onclickOfPopUpOption("login")}>Login</div>
           </div>
         )}
       </div>
 
+        {
+          login && <Login setLoginModal={setLoginModal} />
+        }
     </div>
   );
 };
