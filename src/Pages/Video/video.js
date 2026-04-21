@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './video.css';
 import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import { Link } from 'react-router-dom';
 
 const Video = () => {
+  const [message, setMessage] = useState("");
+  console.log(message)
   return (
     <div className='video'>
       <div className="videoPostSection">
@@ -59,7 +61,7 @@ const Video = () => {
               <div className="youtubeSelfComment">
                 <img className='video_youtubeSelfCommentProfile' src="https://th.bing.com/th/id/OIP.8gLtXrl4KYPfPA6QyMnlUwHaEK?w=304&h-180&c-7&r-0&o-S&dpr-1.3&pid-1.7" />
                 <div className="addAComment">
-                      <input type='text' className='addACommentInput' placeholder='Add a comment' />
+                      <input type='text' value={message} onChange={(e)=>{setMessage(e.target.value)}} className='addACommentInput' placeholder='Add a comment' />
                       <div className="cancelSubmitComment">
                         <div className="cancelcomment">Cancel</div>
                         <div className="cancelcomment">Comment</div>

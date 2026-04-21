@@ -1,9 +1,18 @@
-import React from 'react'
+import React,{useState} from 'react'
 import  './signUp.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+  const [signeUpField, setsigneUpField] = useState({"channelName":"","userName":"","password":"","about":"","profilePic":""});
+  const [uploadedImageUrl,setUploadedImageUrl] = useState("https://th.bing.com/th/id/OIP.RAdrPNRMbet9JG-EzVBh1gAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3");
+  
+  const handleInputField =(event,name)=>{
+    setsigneUpField({
+      ...signeUpField,[name]:event.target.value
+    })
+  }
+  console.log(signeUpField)
   return (
     <div className='signUp'>
       <div className="signup_card">
@@ -13,15 +22,15 @@ const SignUp = () => {
         </div>
 
         <div className="signUp_Inputs">
-            <input type="text" className='signUp_Inputs_inp' placeholder='Channel Name' />
-            <input type="text" className='signUp_Inputs_inp' placeholder='User Name' />
-            <input type="password" className='signUp_Inputs_inp' placeholder='Password' />
-            <input type="text" className='signUp_Inputs_inp' placeholder='About Your Channel Name' />
+            <input type="text" className='signUp_Inputs_inp' value={signeUpField.channelName} onChange={(e)=>{handleInputField(e,"channelName")}} placeholder='Channel Name' />
+            <input type="text" className='signUp_Inputs_inp' value={signeUpField.userName} onChange={(e)=>{handleInputField(e,"userName")}} placeholder='User Name' />
+            <input type="password" className='signUp_Inputs_inp' value={signeUpField.password} onChange={(e)=>{handleInputField(e,"password")}} placeholder='Password' />
+            <input type="text" className='signUp_Inputs_inp' value={signeUpField.about} onChange={(e)=>{handleInputField(e,"about")}} placeholder='About Your Channel Name' />
         
             <div className="image_upload_signup">
                     <input type='file'/>
             <div className="image_upload_signup_div">
-                <img className='image_default_signup' src="https://th.bing.com/th/id/OIP.RAdrPNRMbet9JG-EzVBh1gAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" />
+                <img className='image_default_signup' src={uploadedImageUrl} />
                 </div>    
                     </div>
 

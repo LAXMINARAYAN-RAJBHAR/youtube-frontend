@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './login.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 
 const Login = ({setLoginModal}) => {
+    // ✅ Fixed
+const [loginField, setLoginField] = useState({"userName":"","password":""});
+    console.log(loginField)
+
+
+    const handleOnChangeInput = (event, name)=>{
+        setLoginField({
+            ...loginField,[name]:event.target.value
+        })
+    }
   return (
     <div className='login'>
       <div className="login_card">
@@ -14,10 +24,10 @@ const Login = ({setLoginModal}) => {
 
             <div className="loginCredentials">
                 <div className="userNameLogin">
-                    <input className='userNameLoginUserName' placeholder='UserName' type="text" />
+                    <input className='userNameLoginUserName' value={loginField.userName} onChange={(e)=>handleOnChangeInput(e,"userName")} placeholder='UserName' type="text" />
                 </div>
                 <div className="userNameLogin">
-                    <input className='userNameLoginUserName' placeholder='Password' type="password" />
+                    <input className='userNameLoginUserName' value={loginField.password} onChange={(e)=>handleOnChangeInput(e,"password")} placeholder='Password' type="password" />
                 </div>
             </div>
 
