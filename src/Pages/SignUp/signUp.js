@@ -2,10 +2,11 @@ import React,{useState} from 'react'
 import  './signUp.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const SignUp = () => {
-  const [signeUpField, setsigneUpField] = useState({"channelName":"","userName":"","password":"","about":"","profilePic":""});
   const [uploadedImageUrl,setUploadedImageUrl] = useState("https://th.bing.com/th/id/OIP.RAdrPNRMbet9JG-EzVBh1gAAAA?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3");
+  const [signeUpField, setsigneUpField] = useState({"channelName":"","userName":"","password":"","about":"","profilePic":uploadedImageUrl});
   
   const handleInputField =(event,name)=>{
     setsigneUpField({
@@ -13,6 +14,27 @@ const SignUp = () => {
     })
   }
   console.log(signeUpField)
+  
+  const uploadImage = async (e)=>{
+    console.log("Uploading")
+      const files = e.target.files;
+      const data = new FormData();
+      data.append('file', files[0]);
+      // youtube-clone
+      data.append('upload_preset', 'youtube-clone');
+      try{
+          // cloudName="dwoqk0yue"
+          const response = await axios.post("https://api.cloudinary.com/v1_1/dwoqk0yue/image/upload",data)
+          const imageUrl = response.data.url;
+          setUploadedImageUrl(imageUrl);
+          setsigneUpField({
+      ...signeUpField,"profilePic":imageUrl
+    })
+      }catch(err){
+        console.log(err)
+      }
+  }
+
   return (
     <div className='signUp'>
       <div className="signup_card">
@@ -28,7 +50,7 @@ const SignUp = () => {
             <input type="text" className='signUp_Inputs_inp' value={signeUpField.about} onChange={(e)=>{handleInputField(e,"about")}} placeholder='About Your Channel Name' />
         
             <div className="image_upload_signup">
-                    <input type='file'/>
+                    <input type='file' onChange={(e)=>uploadImage(e)} />
             <div className="image_upload_signup_div">
                 <img className='image_default_signup' src={uploadedImageUrl} />
                 </div>    
