@@ -8,6 +8,8 @@ import Video from './Pages/Video/video';
 import Profile from './Pages/Profile/profile';
 import VideoUpload from './Pages/VideoUpload/videoUpload';
 import SignUp from './Pages/SignUp/signUp';
+import Reels from './Component/Reels/reels';
+
 
 function App() {
   const [sideNavbar, setSideNavbar] = useState(false);
@@ -24,6 +26,7 @@ function App() {
         <Route path='/user/:id' element={<Profile sideNavbar={sideNavbar} />} />
         <Route path='/:id/upload' element={<VideoUpload/>} />
         <Route path='/signup' element={<SignUp/>} />
+        <Route path="/reels" element={<Reels />} />
       </Routes>
        
     </div>

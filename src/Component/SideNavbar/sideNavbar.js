@@ -11,19 +11,24 @@ import SmartDisplayIcon from "@mui/icons-material/SmartDisplay";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
+import { Link } from "react-router-dom";
+
 const SideNavbar = ({sideNavbar}) => {
   return (
-    <div className={sideNavbar?"home-sideNavbar":"homeSideNavbarHide"}>
+      <div className={sideNavbar?"home-sideNavbar":"homeSideNavbarHide"}>
       <div className="home_sideNavbarTop">
         <div className={"home_sideNavbarTopOption"}>
           <OtherHousesIcon />
           <div className="home_sideNavbarTopOptionTitle">Home</div>
         </div>
 
-        <div className={"home_sideNavbarTopOption"}>
-          <SlideshowIcon />
-          <div className="home_sideNavbarTopOptionTitle">Shorts</div>
-        </div>
+        
+<Link to="/reels" className="home_sideNavbar_link">
+  <div className={"home_sideNavbarTopOption"}>
+    <SlideshowIcon />
+    <div className="home_sideNavbarTopOptionTitle">Shorts</div>
+  </div>
+</Link>
 
         <div className={"home_sideNavbarTopOption"}>
           <SubscriptionsIcon />

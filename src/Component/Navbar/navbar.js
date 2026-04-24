@@ -8,6 +8,8 @@ import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { Link, useNavigate } from "react-router-dom";
 import Login from "../Login/login";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+
 
 const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
   const [userPic] = useState(
@@ -70,27 +72,31 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
       </div>
 
       {/* RIGHT */}
-      <div className="navbar-right">
+<div className="navbar-right">
 
-        <Link to={'/763/upload'}>
-        <VideoCameraFrontIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
-        </Link>
+  <Link to={'/reels'}>
+    <VideoLibraryIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+  </Link>
+
+  <Link to={'/763/upload'}>
+    <VideoCameraFrontIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+  </Link>
         
-        <NotificationsActiveIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
-        <img
-          onClick={() => setNavbarModal((prev) => !prev)}
-          src={userPic}
-          alt="User"
-          className="navbar-right-logo"
-        />
-        {navbarModal && (
-          <div className="navbar-modal">
-            <div className="navbar-modal-option" onClick={handleprofile}>Profile</div>
-            <div className="navbar-modal-option" onClick={()=>onclickOfPopUpOption("logout")}>Logout</div>
-            <div className="navbar-modal-option" onClick={()=>onclickOfPopUpOption("login")}>Login</div>
-          </div>
-        )}
-      </div>
+  <NotificationsActiveIcon sx={{ fontSize: "30px", cursor: "pointer", color: "white" }} />
+  <img
+    onClick={() => setNavbarModal((prev) => !prev)}
+    src={userPic}
+    alt="User"
+    className="navbar-right-logo"
+  />
+  {navbarModal && (
+    <div className="navbar-modal">
+      <div className="navbar-modal-option" onClick={handleprofile}>Profile</div>
+      <div className="navbar-modal-option" onClick={()=>onclickOfPopUpOption("logout")}>Logout</div>
+      <div className="navbar-modal-option" onClick={()=>onclickOfPopUpOption("login")}>Login</div>
+    </div>
+  )}
+</div>
 
         {
           login && <Login setLoginModal={setLoginModal} />

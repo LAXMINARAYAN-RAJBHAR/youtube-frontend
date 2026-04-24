@@ -1,0 +1,85 @@
+.reels_container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background: #000;
+}
+
+.reel_item {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reel_video {
+  height: 100%;
+  max-width: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Right side action buttons */
+.reel_actions {
+  position: absolute;
+  right: 20px;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reel_action_btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  gap: 4px;
+}
+
+/* Bottom user info */
+.reel_info {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  color: white;
+}
+
+.reel_user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.reel_profile_pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.reel_username {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.reel_subscribe_btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.reel_description {
+  font-size: 14px;
+  max-width: 250px;
+}

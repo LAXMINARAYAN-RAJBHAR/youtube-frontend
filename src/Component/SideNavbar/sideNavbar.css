@@ -57,3 +57,7 @@
     height: 25px;
     border-radius: 50px;
 }
+.home_sideNavbar_link {
+  text-decoration: none;
+  color: inherit;
+}
