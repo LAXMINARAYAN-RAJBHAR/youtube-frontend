@@ -5,6 +5,7 @@
   background: #000;
 }
 
+/* Each reel item */
 .reel_item {
   position: relative;
   height: 100vh;
@@ -14,9 +15,11 @@
   align-items: center;
 }
 
+/* Video */
 .reel_video {
   height: 100%;
   max-width: 400px;
+  width: 100%; /* allow full width on mobile */
   object-fit: cover;
   border-radius: 12px;
 }
@@ -84,3 +87,34 @@
   max-width: 250px;
 }
 
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .reel_video {
+    max-width: 100%;   /* video takes full width */
+    border-radius: 0;  /* edge-to-edge video */
+  }
+
+  .reel_actions {
+    right: 10px;
+    bottom: 80px;
+    gap: 15px;
+  }
+
+  .reel_action_btn {
+    font-size: 11px;
+  }
+
+  .reel_info {
+    bottom: 20px;
+    left: 10px;
+  }
+
+  .reel_username {
+    font-size: 14px;
+  }
+
+  .reel_description {
+    font-size: 13px;
+    max-width: 200px;
+  }
+}
