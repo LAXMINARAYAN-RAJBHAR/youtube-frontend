@@ -2,6 +2,14 @@ import React from "react";
 import "./homePage.css";
 import { Link } from 'react-router-dom';
 
+const shortsData = [
+  { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user1", thumbnail: "https://picsum.photos/200/350?random=1" },
+  { id: 2, src: "https://www.w3schools.com/html/movie.mp4", user: "user2", thumbnail: "https://picsum.photos/200/350?random=2" },
+  { id: 3, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user3", thumbnail: "https://picsum.photos/200/350?random=3" },
+  { id: 4, src: "https://www.w3schools.com/html/movie.mp4", user: "user4", thumbnail: "https://picsum.photos/200/350?random=4" },
+  { id: 5, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user5", thumbnail: "https://picsum.photos/200/350?random=5" },
+  { id: 6, src: "https://www.w3schools.com/html/movie.mp4", user: "user6", thumbnail: "https://picsum.photos/200/350?random=6" },
+];
 
 const HomePage = ({ sideNavbar }) => {
   const options = [
@@ -11,7 +19,6 @@ const HomePage = ({ sideNavbar }) => {
     "Bhojpuri Cinema","Superhero movies","Astronomy","AI","History","Indian Music",
     "Recently Uploaded","Watched",
   ];
-  
 
   const videos = [
     { id: 7679, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s", title:"Big Buck Bunny open-source film", duration:"09:56", channel:"Gangeshwary" },
@@ -28,6 +35,32 @@ const HomePage = ({ sideNavbar }) => {
     { id: 12, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
   ];
 
+  const firstRow = videos.slice(0, 4);
+  const restVideos = videos.slice(4);
+
+  const VideoCard = ({ video }) => (
+    <div key={video.id} className="youtube_thumbnailBox">
+      <Link to={`/watch/${video.id}`} className="youtube_thumbnailWrapper">
+        <img src={video.thumbnail} alt={video.title} className="youtube_thumbnailPic" />
+        <div className="youtube_timingThumbnail">{video.duration}</div>
+      </Link>
+      <div className="youtubeTitleBox">
+        <div className="youtubeBoxProfile">
+          <img
+            src={`https://api.dicebear.com/7.x/initials/svg?seed=${video.channel}`}
+            alt={video.channel}
+            className="youtube_thumbnail_Profile"
+          />
+          <p className="youtube_ChannelName">{video.channel}</p>
+        </div>
+        <div className="youtubeVideoInfo">
+          <p className="youtube_videoTitle">{video.title}</p>
+          <p className="youtubeVideo_Views">3 Likes</p>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="homePage">
       {/* Category options bar */}
@@ -39,34 +72,37 @@ const HomePage = ({ sideNavbar }) => {
         </div>
       </div>
 
-      {/* Main video grid */}
       <div className={`home_mainPage ${sideNavbar ? "sidebar-open" : "sidebar-closed"}`}>
-        <div className="youtube_VideoGrid">
-          {videos.map((video) => (
-            <div key={video.id} className="youtube_thumbnailBox">
-              <Link to={`/watch/${video.id}`} className="youtube_thumbnailWrapper">
-                <img src={video.thumbnail} alt={`Thumbnail for ${video.title}`} className="youtube_thumbnailPic" />
-                <div className="youtube_timingThumbnail">{video.duration}</div>
-              </Link>
 
-              <div className="youtubeTitleBox">
-                <div className="youtubeBoxProfile">
-                  <img
-                    src={`https://api.dicebear.com/7.x/initials/svg?seed=${video.channel}`}
-                    alt={video.channel}
-                    className="youtube_thumbnail_Profile"
-                  />
-                  {/* Bright glowing channel names */}
-                  <p className="youtube_ChannelName">{video.channel}</p>
+        {/* Shorts Row */}
+        <div className="homePage_shortsSection">
+          <div className="homePage_shortsHeader">
+            <span className="homePage_shortsTitle">🎬 Shorts</span>
+            <Link to="/reels" className="homePage_shortsViewAll">View all</Link>
+          </div>
+          <div className="homePage_shortsRow">
+            {shortsData.map((short) => (
+              <Link to="/reels" key={short.id} className="homePage_shortCard">
+                <div className="homePage_shortThumbnail">
+                  <img src={short.thumbnail} alt={short.user} className="homePage_shortImg" />
+                  <div className="homePage_shortPlay">▶</div>
                 </div>
-                <div className="youtubeVideoInfo">
-                  <p className="youtube_videoTitle">{video.title}</p>
-                  <p className="youtubeVideo_Views">3 Likes</p>
-                </div>
-              </div>
-            </div>
-          ))} 
+                <div className="homePage_shortUser">{short.user}</div>
+              </Link>
+            ))}
+          </div>
         </div>
+
+        {/* First row of videos */}
+        <div className="youtube_VideoGrid">
+          {firstRow.map((video) => <VideoCard key={video.id} video={video} />)}
+        </div>
+
+        {/* Rest of videos */}
+        <div className="youtube_VideoGrid">
+          {restVideos.map((video) => <VideoCard key={video.id} video={video} />)}
+        </div>
+
       </div>
     </div>
   );

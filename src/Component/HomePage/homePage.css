@@ -192,6 +192,87 @@
   text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 30px #ff00ff;
 }
 
+/* Shorts Section */
+.homePage_shortsSection {
+  padding: 16px 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  margin: 16px 0;
+}
 
+.homePage_shortsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px 12px 8px;
+}
+
+.homePage_shortsTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.homePage_shortsViewAll {
+  color: #3ea6ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.homePage_shortsRow {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 0 8px 8px 8px;
+  scrollbar-width: none;
+}
+
+.homePage_shortsRow::-webkit-scrollbar {
+  display: none;
+}
+
+.homePage_shortCard {
+  text-decoration: none;
+  flex-shrink: 0;
+  width: 140px;
+  cursor: pointer;
+}
+
+.homePage_shortThumbnail {
+  position: relative;
+  width: 140px;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.homePage_shortImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.homePage_shortPlay {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.homePage_shortUser {
+  color: #aaa;
+  font-size: 13px;
+  margin-top: 6px;
+  text-align: center;
+}
 
 
