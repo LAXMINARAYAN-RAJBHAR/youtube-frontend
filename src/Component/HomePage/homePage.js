@@ -93,10 +93,10 @@ const HomePage = ({ sideNavbar }) => {
           </div>
         </div>
 
-        {/* First row of videos */}
-        <div className="youtube_VideoGrid">
-          {firstRow.map((video) => <VideoCard key={video.id} video={video} />)}
-        </div>
+        {/* Replace the two separate grids with one */}
+<div className="youtube_VideoGrid">
+  {videos.map((video) => <VideoCard key={video.id} video={video} />)}
+</div>
 
         {/* Rest of videos */}
         <div className="youtube_VideoGrid">
