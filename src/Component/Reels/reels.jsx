@@ -9,6 +9,8 @@ const reelsData = [
   {
     id: 1,
     src: "https://www.w3schools.com/html/mov_bbb.mp4",
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user1",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "This is a cool reel 🔥",
@@ -16,7 +18,9 @@ const reelsData = [
   },
   {
     id: 2,
-    src: "https://www.w3schools.com/html/movie.mp4",
+    src: "https://www.w3schools.com/html/movie.mp4",   // valid MP4
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user2",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "Another awesome reel 🎬",
@@ -24,7 +28,9 @@ const reelsData = [
   },
   {
     id: 3,
-    src: "https://www.w3schools.com/html/movie.mp4",
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",   // valid MP4
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user3",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "Another awesome reel 🎬",
@@ -32,7 +38,9 @@ const reelsData = [
   },
   {
     id: 4,
-    src: "https://www.w3schools.com/html/movie.mp4",
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",   // valid MP4
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user4",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "Another awesome reel 🎬",
@@ -40,15 +48,19 @@ const reelsData = [
   },
   {
     id: 5,
-    src: "https://www.w3schools.com/html/movie.mp4",
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",   // valid MP4
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user5",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "Another awesome reel 🎬",
     likes: 98,
   },
-  {
+    {
     id: 6,
-    src: "https://www.w3schools.com/html/movie.mp4",
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",   // valid MP4
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user6",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "Another awesome reel 🎬",
@@ -56,7 +68,9 @@ const reelsData = [
   },
   {
     id: 7,
-    src: "https://www.w3schools.com/html/movie.mp4",
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",   // valid MP4
+    srcWebm: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm",
+    srcOgg: "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.ogv",
     user: "user7",
     profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
     description: "Another awesome reel 🎬",
@@ -64,10 +78,20 @@ const reelsData = [
   },
 ];
 
+const Reels = () => {
+  return (
+    <div className="reels_container">
+      {reelsData.map((reel) => (
+        <ReelItem key={reel.id} reel={reel} />
+      ))}
+    </div>
+  );
+};
+
 const ReelItem = ({ reel }) => {
   const videoRef = useRef(null);
   const [liked, setLiked] = useState(false);
-  const [muted, setMuted] = useState(false); // start unmuted
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -75,18 +99,14 @@ const ReelItem = ({ reel }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-
           const playPromise = video.play();
-
           if (playPromise !== undefined) {
             playPromise.catch(() => {
-              // If autoplay with sound fails
               video.muted = true;
               video.play();
               setMuted(true);
             });
           }
-
         } else {
           video.pause();
         }
@@ -95,7 +115,6 @@ const ReelItem = ({ reel }) => {
     );
 
     if (video) observer.observe(video);
-
     return () => {
       if (video) observer.unobserve(video);
     };
@@ -111,19 +130,18 @@ const ReelItem = ({ reel }) => {
     <div className="reel_item">
       <video
   ref={videoRef}
-  src={reel.src}
   className="reel_video"
   loop
   muted={muted}
   playsInline
   controls
-  onClick={() => {
-    setMuted(!muted);
-    videoRef.current?.play();
-  }}
-/>
+>
+  <source src={reel.src} type="video/mp4" />
+  {reel.srcWebm && <source src={reel.srcWebm} type="video/webm" />}
+  {reel.srcOgg && <source src={reel.srcOgg} type="video/ogg" />}
+  Your browser does not support the video tag.
+</video>
 
-      {/* Sound Button */}
       <div className="sound_btn" onClick={toggleMute}>
         {muted ? "🔇" : "🔊"}
       </div>
@@ -134,16 +152,13 @@ const ReelItem = ({ reel }) => {
           <ThumbUpOutlinedIcon style={{ color: liked ? "#ff0000" : "white" }} />
           <span>{liked ? reel.likes + 1 : reel.likes}</span>
         </div>
-
         <div className="reel_action_btn">
           <ThumbDownAltOutlinedIcon style={{ color: "white" }} />
         </div>
-
         <div className="reel_action_btn">
           <ChatBubbleOutlineIcon style={{ color: "white" }} />
           <span>Comment</span>
         </div>
-
         <div className="reel_action_btn">
           <ShareOutlinedIcon style={{ color: "white" }} />
           <span>Share</span>
@@ -163,14 +178,5 @@ const ReelItem = ({ reel }) => {
   );
 };
 
-const Reels = () => {
-  return (
-    <div className="reels_container">
-      {reelsData.map((reel) => (
-        <ReelItem key={reel.id} reel={reel} />
-      ))}
-    </div>
-  );
-};
 
 export default Reels;
