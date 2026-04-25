@@ -35,8 +35,9 @@ const HomePage = ({ sideNavbar }) => {
     { id: 12, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
   ];
 
-  const firstRow = videos.slice(0, 4);
-  const restVideos = videos.slice(4);
+  // Remove these two lines since they're no longer used
+  // const firstRow = videos.slice(0, 4);
+  // const restVideos = videos.slice(4);
 
   const VideoCard = ({ video }) => (
     <div key={video.id} className="youtube_thumbnailBox">
@@ -93,15 +94,15 @@ const HomePage = ({ sideNavbar }) => {
           </div>
         </div>
 
-        {/* Replace the two separate grids with one */}
+       {/* Single grid with all videos */}
 <div className="youtube_VideoGrid">
   {videos.map((video) => <VideoCard key={video.id} video={video} />)}
 </div>
 
-        {/* Rest of videos */}
-        <div className="youtube_VideoGrid">
-          {restVideos.map((video) => <VideoCard key={video.id} video={video} />)}
-        </div>
+{/* DELETE this entire block below */}
+{/* <div className="youtube_VideoGrid">
+  {restVideos.map((video) => <VideoCard key={video.id} video={video} />)}
+</div> */}
 
       </div>
     </div>
