@@ -5,6 +5,15 @@
   background: #000;
 }
 
+.sound_btn{
+position:absolute;
+top:20px;
+right:20px;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+
 /* Each reel item */
 .reel_item {
   position: relative;

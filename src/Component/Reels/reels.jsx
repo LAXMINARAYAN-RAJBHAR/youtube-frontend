@@ -22,6 +22,46 @@ const reelsData = [
     description: "Another awesome reel 🎬",
     likes: 98,
   },
+  {
+    id: 3,
+    src: "https://www.w3schools.com/html/movie.mp4",
+    user: "user3",
+    profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
+    description: "Another awesome reel 🎬",
+    likes: 98,
+  },
+  {
+    id: 4,
+    src: "https://www.w3schools.com/html/movie.mp4",
+    user: "user4",
+    profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
+    description: "Another awesome reel 🎬",
+    likes: 98,
+  },
+  {
+    id: 5,
+    src: "https://www.w3schools.com/html/movie.mp4",
+    user: "user5",
+    profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
+    description: "Another awesome reel 🎬",
+    likes: 98,
+  },
+  {
+    id: 6,
+    src: "https://www.w3schools.com/html/movie.mp4",
+    user: "user6",
+    profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
+    description: "Another awesome reel 🎬",
+    likes: 98,
+  },
+  {
+    id: 7,
+    src: "https://www.w3schools.com/html/movie.mp4",
+    user: "user7",
+    profilePic: "https://th.bing.com/th/id/OIP.hA04LwcrDABDbCzqGof8iQHaHa?rs=1&pid=imgDetMain",
+    description: "Another awesome reel 🎬",
+    likes: 98,
+  },
 ];
 
 const ReelItem = ({ reel }) => {
@@ -43,18 +83,32 @@ const ReelItem = ({ reel }) => {
     return () => observer.disconnect();
   }, []);
 
+  const [muted, setMuted] = useState(true);
+
   return (
     <div className="reel_item">
       <video
-        ref={videoRef}
-        src={reel.src}
-        className="reel_video"
-        loop
-        muted
-        playsInline
-      />
+  ref={videoRef}
+  src={reel.src}
+  className="reel_video"
+  loop
+  muted={muted}
+  playsInline
+  controls
+  onClick={() => {
+    setMuted(!muted);
+    videoRef.current?.play();
+  }}
+/>
+
+
 
       {/* Right Action Buttons */}
+
+      <div className="sound_btn" onClick={() => setMuted(!muted)}>
+  {muted ? "🔇" : "🔊"}
+</div>
+
       <div className="reel_actions">
         <div className="reel_action_btn" onClick={() => setLiked(!liked)}>
           <ThumbUpOutlinedIcon style={{ color: liked ? '#ff0000' : 'white' }} />
