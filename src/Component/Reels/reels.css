@@ -24,15 +24,17 @@
   border-radius: 12px;
 }
 
+/* sound icon inside video */
 .sound_btn{
-position:absolute;
-top:20px;
-right:20px;
-font-size:22px;
-color:white;
-cursor:pointer;
-z-index:10;
+  position:relative;
+  top:15px;
+  right:15px;
+  font-size:22px;
+  color:white;
+  cursor:pointer;
+  z-index:10;
 }
+
 
 /* Right side action buttons */
 .reel_actions {
