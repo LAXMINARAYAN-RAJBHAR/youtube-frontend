@@ -67,23 +67,45 @@ const reelsData = [
 const ReelItem = ({ reel }) => {
   const videoRef = useRef(null);
   const [liked, setLiked] = useState(false);
+  const [muted, setMuted] = useState(false); // start unmuted
 
   useEffect(() => {
+    const video = videoRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          videoRef.current?.play();
+
+          const playPromise = video.play();
+
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // If autoplay with sound fails
+              video.muted = true;
+              video.play();
+              setMuted(true);
+            });
+          }
+
         } else {
-          videoRef.current?.pause();
+          video.pause();
         }
       },
       { threshold: 0.7 }
     );
-    if (videoRef.current) observer.observe(videoRef.current);
-    return () => observer.disconnect();
+
+    if (video) observer.observe(video);
+
+    return () => {
+      if (video) observer.unobserve(video);
+    };
   }, []);
 
-  const [muted, setMuted] = useState(true);
+  const toggleMute = () => {
+    const video = videoRef.current;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  };
 
   return (
     <div className="reel_item">
@@ -101,36 +123,37 @@ const ReelItem = ({ reel }) => {
   }}
 />
 
-
+      {/* Sound Button */}
+      <div className="sound_btn" onClick={toggleMute}>
+        {muted ? "🔇" : "🔊"}
+      </div>
 
       {/* Right Action Buttons */}
-
-      <div className="sound_btn" onClick={() => setMuted(!muted)}>
-  {muted ? "🔇" : "🔊"}
-</div>
-
       <div className="reel_actions">
         <div className="reel_action_btn" onClick={() => setLiked(!liked)}>
-          <ThumbUpOutlinedIcon style={{ color: liked ? '#ff0000' : 'white' }} />
+          <ThumbUpOutlinedIcon style={{ color: liked ? "#ff0000" : "white" }} />
           <span>{liked ? reel.likes + 1 : reel.likes}</span>
         </div>
+
         <div className="reel_action_btn">
-          <ThumbDownAltOutlinedIcon style={{ color: 'white' }} />
+          <ThumbDownAltOutlinedIcon style={{ color: "white" }} />
         </div>
+
         <div className="reel_action_btn">
-          <ChatBubbleOutlineIcon style={{ color: 'white' }} />
+          <ChatBubbleOutlineIcon style={{ color: "white" }} />
           <span>Comment</span>
         </div>
+
         <div className="reel_action_btn">
-          <ShareOutlinedIcon style={{ color: 'white' }} />
+          <ShareOutlinedIcon style={{ color: "white" }} />
           <span>Share</span>
         </div>
       </div>
 
-      {/* Bottom User Info */}
+      {/* Bottom Info */}
       <div className="reel_info">
         <div className="reel_user">
-          <img src={reel.profilePic} className="reel_profile_pic" />
+          <img src={reel.profilePic} alt="profile" className="reel_profile_pic" />
           <span className="reel_username">{reel.user}</span>
           <button className="reel_subscribe_btn">Subscribe</button>
         </div>

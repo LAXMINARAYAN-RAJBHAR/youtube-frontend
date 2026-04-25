@@ -9,9 +9,10 @@
 position:absolute;
 top:20px;
 right:20px;
-color:white;
 font-size:22px;
+color:white;
 cursor:pointer;
+z-index:10;
 }
 
 /* Each reel item */
