@@ -104,7 +104,7 @@ const HomePage = ({ sideNavbar }) => {
         {/* ✅ First Shorts Row */}
         <ShortsRow data={shortsData} title="Reels" />
 
-        {/* ✅ First 3 videos */}
+        {/* ✅ First 9 videos */}
         <div className="youtube_VideoGrid">
           {videos.slice(0, 12).map((video) => <VideoCard key={video.id} video={video} />)}
         </div>
