@@ -11,6 +11,15 @@ const shortsData = [
   { id: 6, src: "https://www.w3schools.com/html/movie.mp4", user: "user6", thumbnail: "https://picsum.photos/200/350?random=6" },
 ];
 
+const shortsData2 = [
+  { id: 7, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user7", thumbnail: "https://picsum.photos/200/350?random=7" },
+  { id: 8, src: "https://www.w3schools.com/html/movie.mp4", user: "user8", thumbnail: "https://picsum.photos/200/350?random=8" },
+  { id: 9, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user9", thumbnail: "https://picsum.photos/200/350?random=9" },
+  { id: 10, src: "https://www.w3schools.com/html/movie.mp4", user: "user10", thumbnail: "https://picsum.photos/200/350?random=10" },
+  { id: 11, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user11", thumbnail: "https://picsum.photos/200/350?random=11" },
+  { id: 12, src: "https://www.w3schools.com/html/movie.mp4", user: "user12", thumbnail: "https://picsum.photos/200/350?random=12" },
+];
+
 const HomePage = ({ sideNavbar }) => {
   const options = [
     "DD News","News","Film Criticisms","Twenty20 Cricket","Music","Live","Mixes",
@@ -35,9 +44,26 @@ const HomePage = ({ sideNavbar }) => {
     { id: 12, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
   ];
 
-  // Remove these two lines since they're no longer used
-  // const firstRow = videos.slice(0, 4);
-  // const restVideos = videos.slice(4);
+  // ✅ Reusable Shorts Row component
+  const ShortsRow = ({ data, title }) => (
+    <div className="homePage_shortsSection">
+      <div className="homePage_shortsHeader">
+        <span className="homePage_shortsTitle">🎬 {title}</span>
+        <Link to="/reels" className="homePage_shortsViewAll">View all</Link>
+      </div>
+      <div className="homePage_shortsRow">
+        {data.map((short) => (
+          <Link to="/reels" key={short.id} className="homePage_shortCard">
+            <div className="homePage_shortThumbnail">
+              <img src={short.thumbnail} alt={short.user} className="homePage_shortImg" />
+              <div className="homePage_shortPlay">▶</div>
+            </div>
+            <div className="homePage_shortUser">{short.user}</div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 
   const VideoCard = ({ video }) => (
     <div key={video.id} className="youtube_thumbnailBox">
@@ -75,34 +101,21 @@ const HomePage = ({ sideNavbar }) => {
 
       <div className={`home_mainPage ${sideNavbar ? "sidebar-open" : "sidebar-closed"}`}>
 
-        {/* Shorts Row */}
-        <div className="homePage_shortsSection">
-          <div className="homePage_shortsHeader">
-            <span className="homePage_shortsTitle">🎬 Shorts</span>
-            <Link to="/reels" className="homePage_shortsViewAll">View all</Link>
-          </div>
-          <div className="homePage_shortsRow">
-            {shortsData.map((short) => (
-              <Link to="/reels" key={short.id} className="homePage_shortCard">
-                <div className="homePage_shortThumbnail">
-                  <img src={short.thumbnail} alt={short.user} className="homePage_shortImg" />
-                  <div className="homePage_shortPlay">▶</div>
-                </div>
-                <div className="homePage_shortUser">{short.user}</div>
-              </Link>
-            ))}
-          </div>
+        {/* ✅ First Shorts Row */}
+        <ShortsRow data={shortsData} title="Reels" />
+
+        {/* ✅ First 3 videos */}
+        <div className="youtube_VideoGrid">
+          {videos.slice(0, 12).map((video) => <VideoCard key={video.id} video={video} />)}
         </div>
 
-       {/* Single grid with all videos */}
-<div className="youtube_VideoGrid">
-  {videos.map((video) => <VideoCard key={video.id} video={video} />)}
-</div>
+        {/* ✅ Second Shorts Row after 3 videos */}
+        <ShortsRow data={shortsData2} title="More Reels" />
 
-{/* DELETE this entire block below */}
-{/* <div className="youtube_VideoGrid">
-  {restVideos.map((video) => <VideoCard key={video.id} video={video} />)}
-</div> */}
+        {/* ✅ Remaining videos */}
+        <div className="youtube_VideoGrid">
+          {videos.slice(3).map((video) => <VideoCard key={video.id} video={video} />)}
+        </div>
 
       </div>
     </div>
