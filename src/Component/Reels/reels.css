@@ -1,7 +1,8 @@
 .reels_container {
-  scroll-snap-type: y mandatory; /* ✅ smooth snap scrolling between reels */
+  height: 100vh;
   overflow-y: scroll;
-  height: 100dvh;
+  scroll-snap-type: y mandatory;
+  background: #000;
 }
 
 .reel_item {
@@ -19,10 +20,6 @@
   height: 650px;
   border-radius: 12px;
   overflow: hidden;
-
-  /* ✅ Mobile */
-  touch-action: pan-y;       /* ✅ allows vertical scroll between reels */
-  scroll-snap-align: start;  /* ✅ snaps each reel into view */
 }
 
 .reel_video {
