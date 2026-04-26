@@ -27,6 +27,7 @@ function App() {
         <Route path='/:id/upload' element={<VideoUpload/>} />
         <Route path='/signup' element={<SignUp/>} />
         <Route path="/reels" element={<Reels />} />
+        <Route path="/profile/:username" element={<Profile sideNavbar={sideNavbar} />} />
       </Routes>
        
     </div>

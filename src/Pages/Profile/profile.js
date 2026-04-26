@@ -3,8 +3,41 @@ import "./profile.css";
 import SideNavbar from "../../Component/SideNavbar/sideNavbar";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom'; // ✅ add this
+
+// Each user's data
+const usersData = {
+  jyoti: {
+    name: "Jyoti",
+    handle: "@User1",
+    videos: 4,
+    about: "About Section of Jyoti's channel",
+    profilePic: "https://tse2.mm.bing.net/th/id/OIP.B-XQ4jOwe6ORilA0uQWGzQHaHa?w=740&h=740&rs=1&pid=ImgDetMain&o=7&rm=3",
+  },
+  rahul: {
+    name: "Rahul",
+    handle: "@User2",
+    videos: 2,
+    about: "About Section of Rahul's channel",
+    profilePic: "https://randomuser.me/api/portraits/men/2.jpg",
+  },
+  // add more users...
+};
 
 const Profile = ({ sideNavbar }) => {
+
+  const { username } = useParams(); // ✅ reads username from URL
+  const user = usersData[username]; // ✅ finds matching user
+
+  // ✅ if user not found
+  if (!user) {
+    return (
+      <div style={{ color: 'white', padding: '20px' }}>
+        User not found!
+      </div>
+    );
+  }
+
   return (
     <div className="profile">
       <SideNavbar sideNavbar={sideNavbar} />

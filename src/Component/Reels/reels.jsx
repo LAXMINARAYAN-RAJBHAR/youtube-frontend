@@ -4,12 +4,14 @@ import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import "./reels.css";
+import { Link } from "react-router-dom"; // add this at top
 
 const reelsData = [
   {
     id: 1,
     src: "https://www.w3schools.com/html/mov_bbb.mp4",
-    user: "user1",
+    user: "Jyoti",
+    username: "jyoti",
     profilePic: "https://randomuser.me/api/portraits/men/1.jpg",
     description: "This is a cool reel 🔥",
     likes: 120,
@@ -18,6 +20,7 @@ const reelsData = [
     id: 2,
     src: "https://www.w3schools.com/html/movie.mp4",
     user: "user2",
+    username: "user2",
     profilePic: "https://randomuser.me/api/portraits/women/2.jpg",
     description: "Another awesome reel 🎬",
     likes: 98,
@@ -26,6 +29,7 @@ const reelsData = [
     id: 3,
     src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     user: "user3",
+    username: "user3",
     profilePic: "https://randomuser.me/api/portraits/men/3.jpg",
     description: "Beautiful Flower 🌸",
     likes: 210,
@@ -34,6 +38,7 @@ const reelsData = [
     id: 4,
     src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4",
     user: "user4",
+    username: "user4",
     profilePic: "https://randomuser.me/api/portraits/women/4.jpg",
     description: "Friday Vibes 🎉",
     likes: 175,
@@ -42,6 +47,7 @@ const reelsData = [
     id: 5,
     src: "https://www.w3schools.com/html/mov_bbb.mp4",
     user: "user5",
+    username: "user5",
     profilePic: "https://randomuser.me/api/portraits/men/5.jpg",
     description: "Bunny is back 🐇",
     likes: 340,
@@ -50,6 +56,7 @@ const reelsData = [
     id: 6,
     src: "https://www.w3schools.com/html/movie.mp4",
     user: "user6",
+    username: "user6",
     profilePic: "https://randomuser.me/api/portraits/women/6.jpg",
     description: "Sample Reel 🎥",
     likes: 290,
@@ -58,6 +65,7 @@ const reelsData = [
     id: 7,
     src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
     user: "user7",
+    username: "user7",
     profilePic: "https://randomuser.me/api/portraits/men/7.jpg",
     description: "Cool Reel 🔥",
     likes: 415,
@@ -146,15 +154,24 @@ const ReelItem = ({ reel }) => {
 
         {/* Bottom Info — ON the video */}
         <div className="reel_info">
+          {/* ✅ CORRECT — only one profile pic */}
           <div className="reel_user">
-            <img
-              src={reel.profilePic}
-              alt="profile"
-              className="reel_profile_pic"
-            />
-            <span className="reel_username">{reel.user}</span>
+            <Link to={`/profile/${reel.username}`}>
+              <img
+                src={reel.profilePic}
+                alt="profile"
+                className="reel_profile_pic"
+              />
+            </Link>
+            <Link
+              to={`/profile/${reel.username}`}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <span className="reel_username">{reel.user}</span>
+            </Link>
             <button className="reel_subscribe_btn">Subscribe</button>
           </div>
+
           <div className="reel_description">{reel.description}</div>
         </div>
       </div>
