@@ -31,6 +31,15 @@
   object-fit: cover;
   display: block;
 }
+/* Hide fullscreen button across browsers */
+.reel_video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}
+
+/* Firefox */
+.reel_video::-moz-media-controls-fullscreen-button {
+  display: none !important;
+}
 
 /* ✅ buttons sit on top right of video */
 .reel_actions {

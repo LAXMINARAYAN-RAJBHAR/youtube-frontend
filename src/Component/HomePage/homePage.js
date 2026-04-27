@@ -49,7 +49,7 @@ const HomePage = ({ sideNavbar }) => {
     <div className="homePage_shortsSection">
       <div className="homePage_shortsHeader">
         <span className="homePage_shortsTitle">🎬 {title}</span>
-        <Link to="/reels" className="homePage_shortsViewAll">View all</Link>
+        {/* <Link to="/reels" className="homePage_shortsViewAll">View all</Link> */}
       </div>
       <div className="homePage_shortsRow">
         {data.map((short) => (
