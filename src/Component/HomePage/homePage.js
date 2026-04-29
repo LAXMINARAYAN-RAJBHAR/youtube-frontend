@@ -3,7 +3,7 @@ import "./homePage.css";
 import { Link } from 'react-router-dom';
 
 const shortsData = [
-  { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user1", thumbnail: "https://picsum.photos/200/350?random=1" },
+  { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "Jyoti",   thumbnail: "https://picsum.photos/200/350?random=1" },
   { id: 2, src: "https://www.w3schools.com/html/movie.mp4", user: "user2", thumbnail: "https://picsum.photos/200/350?random=2" },
   { id: 3, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user3", thumbnail: "https://picsum.photos/200/350?random=3" },
   { id: 4, src: "https://www.w3schools.com/html/movie.mp4", user: "user4", thumbnail: "https://picsum.photos/200/350?random=4" },
