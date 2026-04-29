@@ -1,4 +1,3 @@
-
 import './App.css';
 import Navbar from './Component/Navbar/navbar';
 import Home from './Pages/Home/home';
@@ -9,6 +8,7 @@ import Profile from './Pages/Profile/profile';
 import VideoUpload from './Pages/VideoUpload/videoUpload';
 import SignUp from './Pages/SignUp/signUp';
 import Reels from './Component/Reels/reels';
+
 
 
 function App() {
