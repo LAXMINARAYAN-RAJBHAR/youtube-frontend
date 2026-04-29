@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/youtube-frontend/static/css/main.d0fdb830.css",
-    "main.js": "/youtube-frontend/static/js/main.d355b875.js",
-    "static/js/453.01f1c6e2.chunk.js": "/youtube-frontend/static/js/453.01f1c6e2.chunk.js",
-    "static/media/mylogo.png": "/youtube-frontend/static/media/mylogo.3248daf684c8f51bb139.png",
-    "index.html": "/youtube-frontend/index.html",
-    "main.d0fdb830.css.map": "/youtube-frontend/static/css/main.d0fdb830.css.map",
-    "main.d355b875.js.map": "/youtube-frontend/static/js/main.d355b875.js.map",
-    "453.01f1c6e2.chunk.js.map": "/youtube-frontend/static/js/453.01f1c6e2.chunk.js.map"
+    "main.css": "/rollamroll-frontend/static/css/main.d0fdb830.css",
+    "main.js": "/rollamroll-frontend/static/js/main.11651efd.js",
+    "static/js/453.01f1c6e2.chunk.js": "/rollamroll-frontend/static/js/453.01f1c6e2.chunk.js",
+    "static/media/mylogo.png": "/rollamroll-frontend/static/media/mylogo.3248daf684c8f51bb139.png",
+    "index.html": "/rollamroll-frontend/index.html",
+    "main.d0fdb830.css.map": "/rollamroll-frontend/static/css/main.d0fdb830.css.map",
+    "main.11651efd.js.map": "/rollamroll-frontend/static/js/main.11651efd.js.map",
+    "453.01f1c6e2.chunk.js.map": "/rollamroll-frontend/static/js/453.01f1c6e2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d0fdb830.css",
-    "static/js/main.d355b875.js"
+    "static/js/main.11651efd.js"
   ]
 }
