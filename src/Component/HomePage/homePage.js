@@ -49,7 +49,11 @@ const HomePage = ({ sideNavbar }) => {
     { id: 34, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5r-8k6FyUEN9OYQu5WgyyNqT8lrqgw7dCQ&s", title:"3D Nature Images | Adobe Stock", duration:"12:00", channel:"Rajbhar" },
     { id: 35, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s", title:"5,364,800+ 3d Images | iStock", duration:"13:30", channel:"Narayan" },
     { id: 36, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
-  ];
+    { id: 25, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s", title:"Big Buck Bunny open-source film", duration:"09:56", channel:"Gangeshwary" },
+    { id: 26, thumbnail:"https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg", title:"Sample Video 2", duration:"30:00", channel:"Mummy" },
+    { id: 27, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyNTbTLzlbDj6RSQdV6imNyxNywT3pchKKg&s", title:"3d Lion Stock Photo", duration:"60:00", channel:"Papa" },
+    { id: 28, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWv_QvC-7P4_8Ubbg2rwn0Om4APOgf6B3yA&s", title:"Sample Video 4", duration:"10:00", channel:"Karthik" },
+  ]
 
   const ShortsRow = ({ data, title }) => (
     <div className="homePage_shortsSection">
@@ -109,10 +113,10 @@ const HomePage = ({ sideNavbar }) => {
 
       {/* ✅ Dynamically renders all reels in chunks of 6, with videos in between */}
       {Array.from({ length: Math.ceil(reelsData.length / 6) }).map((_, rowIndex) => {
-        const start = rowIndex * 6;
-        const end = start + 6;
+        const start = rowIndex * 5;
+        const end = start + 9;
         const videoStart = rowIndex * 8;
-        const videoEnd = videoStart + 8;
+        const videoEnd = videoStart + 12;
 
         return (
           <React.Fragment key={rowIndex}>
