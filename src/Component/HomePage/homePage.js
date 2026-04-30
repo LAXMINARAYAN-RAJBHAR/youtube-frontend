@@ -1,24 +1,7 @@
 import React from "react";
 import "./homePage.css";
 import { Link } from 'react-router-dom';
-
-const shortsData = [
-  { id: 1, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "Jyoti",   thumbnail: "https://picsum.photos/200/350?random=1" },
-  { id: 2, src: "https://www.w3schools.com/html/movie.mp4", user: "user2", thumbnail: "https://picsum.photos/200/350?random=2" },
-  { id: 3, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user3", thumbnail: "https://picsum.photos/200/350?random=3" },
-  { id: 4, src: "https://www.w3schools.com/html/movie.mp4", user: "user4", thumbnail: "https://picsum.photos/200/350?random=4" },
-  { id: 5, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user5", thumbnail: "https://picsum.photos/200/350?random=5" },
-  { id: 6, src: "https://www.w3schools.com/html/movie.mp4", user: "user6", thumbnail: "https://picsum.photos/200/350?random=6" },
-];
-
-const shortsData2 = [
-  { id: 7, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user7", thumbnail: "https://picsum.photos/200/350?random=7" },
-  { id: 8, src: "https://www.w3schools.com/html/movie.mp4", user: "user8", thumbnail: "https://picsum.photos/200/350?random=8" },
-  { id: 9, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user9", thumbnail: "https://picsum.photos/200/350?random=9" },
-  { id: 10, src: "https://www.w3schools.com/html/movie.mp4", user: "user10", thumbnail: "https://picsum.photos/200/350?random=10" },
-  { id: 11, src: "https://www.w3schools.com/html/mov_bbb.mp4", user: "user11", thumbnail: "https://picsum.photos/200/350?random=11" },
-  { id: 12, src: "https://www.w3schools.com/html/movie.mp4", user: "user12", thumbnail: "https://picsum.photos/200/350?random=12" },
-];
+import { reelsData } from '../Reels/reels'; // ✅ only one import needed
 
 const HomePage = ({ sideNavbar }) => {
   const options = [
@@ -44,12 +27,10 @@ const HomePage = ({ sideNavbar }) => {
     { id: 12, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
   ];
 
-  // ✅ Reusable Shorts Row component
   const ShortsRow = ({ data, title }) => (
     <div className="homePage_shortsSection">
       <div className="homePage_shortsHeader">
         <span className="homePage_shortsTitle">🎬 {title}</span>
-        {/* <Link to="/reels" className="homePage_shortsViewAll">View all</Link> */}
       </div>
       <div className="homePage_shortsRow">
         {data.map((short) => (
@@ -57,7 +38,9 @@ const HomePage = ({ sideNavbar }) => {
             <div className="homePage_shortThumbnail">
               <img src={short.thumbnail} alt={short.user} className="homePage_shortImg" />
               <div className="homePage_shortPlay">▶</div>
+              <div className="homePage_shortDuration">{short.duration}</div>
             </div>
+            <div className="homePage_shortTitle">{short.title}</div>
             <div className="homePage_shortUser">{short.user}</div>
           </Link>
         ))}
@@ -89,37 +72,47 @@ const HomePage = ({ sideNavbar }) => {
   );
 
   return (
-    <div className="homePage">
-      {/* Category options bar */}
-      <div className={`homePage_options ${sideNavbar ? "sidebar-open" : ""}`}>
-        <div className="homePage_options_track">
-          {options.map((item) => (
-            <div key={item} className="homePage_option">{item}</div>
-          ))}
-        </div>
-      </div>
-
-      <div className={`home_mainPage ${sideNavbar ? "sidebar-open" : "sidebar-closed"}`}>
-
-        {/* ✅ First Shorts Row */}
-        <ShortsRow data={shortsData} title="Reels" />
-
-        {/* ✅ First 9 videos */}
-        <div className="youtube_VideoGrid">
-          {videos.slice(0, 12).map((video) => <VideoCard key={video.id} video={video} />)}
-        </div>
-
-        {/* ✅ Second Shorts Row after 3 videos */}
-        <ShortsRow data={shortsData2} title="More Reels" />
-
-        {/* ✅ Remaining videos */}
-        <div className="youtube_VideoGrid">
-          {videos.slice(3).map((video) => <VideoCard key={video.id} video={video} />)}
-        </div>
-
+  <div className="homePage">
+    <div className={`homePage_options ${sideNavbar ? "sidebar-open" : ""}`}>
+      <div className="homePage_options_track">
+        {options.map((item) => (
+          <div key={item} className="homePage_option">{item}</div>
+        ))}
       </div>
     </div>
-  );
+
+    <div className={`home_mainPage ${sideNavbar ? "sidebar-open" : "sidebar-closed"}`}>
+
+      {/* ✅ Dynamically renders all reels in chunks of 6, with videos in between */}
+      {Array.from({ length: Math.ceil(reelsData.length / 6) }).map((_, rowIndex) => {
+        const start = rowIndex * 6;
+        const end = start + 6;
+        const videoStart = rowIndex * 6;
+        const videoEnd = videoStart + 6;
+
+        return (
+          <React.Fragment key={rowIndex}>
+            {/* Reel row */}
+            <ShortsRow
+              data={reelsData.slice(start, end)}
+              title={rowIndex === 0 ? "Reels" : "More Reels"}
+            />
+
+            {/* Videos after each reel row */}
+            {videos.slice(videoStart, videoEnd).length > 0 && (
+              <div className="youtube_VideoGrid">
+                {videos.slice(videoStart, videoEnd).map((video) => (
+                  <VideoCard key={video.id} video={video} />
+                ))}
+              </div>
+            )}
+          </React.Fragment>
+        );
+      })}
+
+    </div>
+  </div>
+);
 };
 
 export default HomePage;
