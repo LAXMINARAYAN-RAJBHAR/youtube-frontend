@@ -25,6 +25,30 @@ const HomePage = ({ sideNavbar }) => {
     { id: 10, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5r-8k6FyUEN9OYQu5WgyyNqT8lrqgw7dCQ&s", title:"3D Nature Images | Adobe Stock", duration:"12:00", channel:"Rajbhar" },
     { id: 11, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s", title:"5,364,800+ 3d Images | iStock", duration:"13:30", channel:"Narayan" },
     { id: 12, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
+    { id: 13, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s", title:"Big Buck Bunny open-source film", duration:"09:56", channel:"Gangeshwary" },
+    { id: 14, thumbnail:"https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg", title:"Sample Video 2", duration:"30:00", channel:"Mummy" },
+    { id: 15, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyNTbTLzlbDj6RSQdV6imNyxNywT3pchKKg&s", title:"3d Lion Stock Photo", duration:"60:00", channel:"Papa" },
+    { id: 16, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWv_QvC-7P4_8Ubbg2rwn0Om4APOgf6B3yA&s", title:"Sample Video 4", duration:"10:00", channel:"Karthik" },
+    { id: 17, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZleDiTkppd2k7GVmREMQRs8D8JBbNXuuxUA&s", title:"8k Wallpaper 3d Photos", duration:"18:00", channel:"Annu" },
+    { id: 18, thumbnail:"https://damassets.autodesk.net/content/dam/autodesk/www/industry/3d-animation/create-beautiful-3d-animations-thumb-1204x677.jpg", title:"3D Animation Solutions | Autodesk", duration:"08:00", channel:"Jyoti" },
+    { id: 19, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMxQZtpZz8NgMYzzNMiBm-n4h2oGYovjK2lQ&s", title:"3D Shapes | Types, Properties & Examples", duration:"28:00", channel:"Sarita" },
+    { id: 20, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5izd-jLAR_UjqnUULPW42Pv_LIpL0W60cQ&s", title:"3d Graphics Pictures | Unsplash", duration:"20:00", channel:"Jaynarayan" },
+    { id: 21, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6EQg2_-8zTqUk1YRvLpJinJk67VF0wEZfg&s", title:"Scenery 3d wallpaper | homify", duration:"10:00", channel:"Shyamnarayan" },
+    { id: 22, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5r-8k6FyUEN9OYQu5WgyyNqT8lrqgw7dCQ&s", title:"3D Nature Images | Adobe Stock", duration:"12:00", channel:"Rajbhar" },
+    { id: 23, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s", title:"5,364,800+ 3d Images | iStock", duration:"13:30", channel:"Narayan" },
+    { id: 24, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
+    { id: 25, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-l3JR0guZspKsBZkVoakjkQ-qxUCCpkQnw&s", title:"Big Buck Bunny open-source film", duration:"09:56", channel:"Gangeshwary" },
+    { id: 26, thumbnail:"https://i.ytimg.com/vi/ScMzIvxBSi4/hqdefault.jpg", title:"Sample Video 2", duration:"30:00", channel:"Mummy" },
+    { id: 27, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwyNTbTLzlbDj6RSQdV6imNyxNywT3pchKKg&s", title:"3d Lion Stock Photo", duration:"60:00", channel:"Papa" },
+    { id: 28, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpWv_QvC-7P4_8Ubbg2rwn0Om4APOgf6B3yA&s", title:"Sample Video 4", duration:"10:00", channel:"Karthik" },
+    { id: 29, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZleDiTkppd2k7GVmREMQRs8D8JBbNXuuxUA&s", title:"8k Wallpaper 3d Photos", duration:"18:00", channel:"Annu" },
+    { id: 30, thumbnail:"https://damassets.autodesk.net/content/dam/autodesk/www/industry/3d-animation/create-beautiful-3d-animations-thumb-1204x677.jpg", title:"3D Animation Solutions | Autodesk", duration:"08:00", channel:"Jyoti" },
+    { id: 31, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMxQZtpZz8NgMYzzNMiBm-n4h2oGYovjK2lQ&s", title:"3D Shapes | Types, Properties & Examples", duration:"28:00", channel:"Sarita" },
+    { id: 32, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5izd-jLAR_UjqnUULPW42Pv_LIpL0W60cQ&s", title:"3d Graphics Pictures | Unsplash", duration:"20:00", channel:"Jaynarayan" },
+    { id: 33, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN6EQg2_-8zTqUk1YRvLpJinJk67VF0wEZfg&s", title:"Scenery 3d wallpaper | homify", duration:"10:00", channel:"Shyamnarayan" },
+    { id: 34, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5r-8k6FyUEN9OYQu5WgyyNqT8lrqgw7dCQ&s", title:"3D Nature Images | Adobe Stock", duration:"12:00", channel:"Rajbhar" },
+    { id: 35, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUzhAtZL9ElXiENfplVjR5dCJsUQUG2NuXg&s", title:"5,364,800+ 3d Images | iStock", duration:"13:30", channel:"Narayan" },
+    { id: 36, thumbnail:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdcK3NWfTM_cOjFOH6ArcBdUbu29e0AVjFZw&s", title:"Understanding 3D Computer Graphics", duration:"20:50", channel:"Laxminarayan" },
   ];
 
   const ShortsRow = ({ data, title }) => (
@@ -87,8 +111,8 @@ const HomePage = ({ sideNavbar }) => {
       {Array.from({ length: Math.ceil(reelsData.length / 6) }).map((_, rowIndex) => {
         const start = rowIndex * 6;
         const end = start + 6;
-        const videoStart = rowIndex * 6;
-        const videoEnd = videoStart + 6;
+        const videoStart = rowIndex * 8;
+        const videoEnd = videoStart + 8;
 
         return (
           <React.Fragment key={rowIndex}>
