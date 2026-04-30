@@ -57,7 +57,7 @@ export const reelsData = [
   },
   {
     id: 5,
-    src: "https://www.pexels.com/download/video/26442763/",
+    src: "https://youtube.com/shorts/5XVE3cWZ1cw?si=fheuYlzUi24ZTJEU",
     user: "Shyamnarayan",
     username: "shyamnarayan",
     profilePic: "https://randomuser.me/api/portraits/men/5.jpg",
@@ -373,8 +373,11 @@ const ReelItem = ({ reel }) => {
   const videoRef = useRef(null);
   const [liked, setLiked] = useState(false);
   const [muted, setMuted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showIcon, setShowIcon] = useState(false);
   const isMounted = useRef(true);
   const observerRef = useRef(null);
+  const iconTimeoutRef = useRef(null);
 
   useEffect(() => {
     isMounted.current = true;
@@ -385,10 +388,12 @@ const ReelItem = ({ reel }) => {
       ([entry]) => {
         if (!isMounted.current || !videoRef.current) return;
         if (entry.isIntersecting) {
-          video.muted = false; // ✅ ensure unmuted on play
+          video.muted = false;
           video.play().catch(() => {});
+          setIsPlaying(true);
         } else {
           video.pause();
+          setIsPlaying(false);
         }
       },
       { threshold: 0.5 },
@@ -399,12 +404,34 @@ const ReelItem = ({ reel }) => {
     return () => {
       isMounted.current = false;
       observerRef.current?.disconnect();
+      clearTimeout(iconTimeoutRef.current);
       if (videoRef.current) {
         videoRef.current.pause();
         videoRef.current.src = "";
       }
     };
   }, []);
+
+  // Shows the play/pause icon briefly on click
+  const flashIcon = () => {
+    setShowIcon(true);
+    clearTimeout(iconTimeoutRef.current);
+    iconTimeoutRef.current = setTimeout(() => setShowIcon(false), 800);
+  };
+
+  const handleVideoClick = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play().catch(() => {});
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+    flashIcon();
+  };
 
   const toggleMute = () => {
     const video = videoRef.current;
@@ -416,24 +443,30 @@ const ReelItem = ({ reel }) => {
   return (
     <div className="reel_item">
       <div className="reel_video_wrapper">
-        {/* Video */}
+
+        {/* Video — remove `controls`, add onClick */}
         <video
           ref={videoRef}
           className="reel_video"
           loop
           muted={muted}
           playsInline
-          controls
+          onClick={handleVideoClick}
         >
           <source src={reel.src} type="video/mp4" />
         </video>
 
-        {/* Action Buttons — ON the video */}
+        {/* Play/Pause flash icon */}
+        {showIcon && (
+          <div className="reel_play_icon">
+            {isPlaying ? "▶" : "⏸"}
+          </div>
+        )}
+
+        {/* Action Buttons */}
         <div className="reel_actions">
           <div className="reel_action_btn" onClick={() => setLiked(!liked)}>
-            <ThumbUpOutlinedIcon
-              style={{ color: liked ? "#ff0000" : "white" }}
-            />
+            <ThumbUpOutlinedIcon style={{ color: liked ? "#ff0000" : "white" }} />
             <span>{liked ? reel.likes + 1 : reel.likes}</span>
           </div>
           <div className="reel_action_btn">
@@ -443,34 +476,26 @@ const ReelItem = ({ reel }) => {
             <ChatBubbleOutlineIcon style={{ color: "white" }} />
             <span>Comment</span>
           </div>
-          <div className="reel_action_btn">
+          <div className="reel_action_btn" onClick={toggleMute}>
             <ShareOutlinedIcon style={{ color: "white" }} />
             <span>Share</span>
           </div>
         </div>
 
-        {/* Bottom Info — ON the video */}
+        {/* Bottom Info */}
         <div className="reel_info">
-          {/* ✅ CORRECT — only one profile pic */}
           <div className="reel_user">
             <Link to={`/profile/${reel.username}`}>
-              <img
-                src={reel.profilePic}
-                alt="profile"
-                className="reel_profile_pic"
-              />
+              <img src={reel.profilePic} alt="profile" className="reel_profile_pic" />
             </Link>
-            <Link
-              to={`/profile/${reel.username}`}
-              style={{ textDecoration: "none", color: "white" }}
-            >
+            <Link to={`/profile/${reel.username}`} style={{ textDecoration: "none", color: "white" }}>
               <span className="reel_username">{reel.user}</span>
             </Link>
             <button className="reel_subscribe_btn">Subscribe</button>
           </div>
-
           <div className="reel_description">{reel.description}</div>
         </div>
+
       </div>
     </div>
   );
