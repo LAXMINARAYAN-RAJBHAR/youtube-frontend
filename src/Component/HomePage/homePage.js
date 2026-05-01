@@ -151,7 +151,7 @@ const HomePage = ({ sideNavbar }) => {
             <React.Fragment key={rowIndex}>
               <ShortsRow
                 data={reelsData.slice(start, end)}
-                title={rowIndex === 0 ? "Reels" : "More Reels"}
+                title={rowIndex === 0 ? "Shorts" : "More Shorts"}
               />
               {videos.slice(videoStart, videoEnd).length > 0 && (
                 <div className="youtube_VideoGrid">
