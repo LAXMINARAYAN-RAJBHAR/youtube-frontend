@@ -1,7 +1,8 @@
 import React from "react";
 import "./homePage.css";
-import { Link, useNavigate } from "react-router-dom";
 import { reelsData } from "../Reels/reels";
+import { Link, useNavigate, } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const HomePage = ({ sideNavbar }) => {
   const navigate = useNavigate(); // ✅ kept here, used in ShortsRow
