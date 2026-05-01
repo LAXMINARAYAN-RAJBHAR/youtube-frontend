@@ -1,47 +1,69 @@
+/* ✅ Full viewport reels container with smooth snap */
 .reels_container {
-  scroll-snap-type: y mandatory; /* ✅ smooth snap scrolling between reels */
+  scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100dvh;
+  width: 100%;
+  background: #000;
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+
+.reels_container::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari */
 }
 
 .reel_item {
-  height: 100vh;
+  height: 100dvh;               /* ✅ use dvh instead of vh (mobile safe) */
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #000;
 }
 
-/* ✅ wrapper is the anchor for all absolute children */
 .reel_video_wrapper {
   position: relative;
   width: 380px;
-  height: 650px;
+  height: 680px;                /* ✅ slightly taller for better feel */
   border-radius: 12px;
   overflow: hidden;
-
-  /* ✅ Mobile */
-  touch-action: pan-y;       /* ✅ allows vertical scroll between reels */
-  scroll-snap-align: start;  /* ✅ snaps each reel into view */
+  background: #111;
+  touch-action: pan-y;
+  scroll-snap-align: start;
 }
 
 .reel_video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border: none;
+  display: block;               /* ✅ removes bottom gap under video */
 }
-/* Hide fullscreen button across browsers */
+
+/* Hide fullscreen button */
 .reel_video::-webkit-media-controls-fullscreen-button {
   display: none !important;
 }
-
-/* Firefox */
 .reel_video::-moz-media-controls-fullscreen-button {
   display: none !important;
 }
 
-/* ✅ buttons sit on top right of video */
+/* ✅ Gradient overlay so text is readable over any video */
+.reel_video_wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ✅ Action buttons */
 .reel_actions {
   position: absolute;
   right: 12px;
@@ -61,9 +83,14 @@
   cursor: pointer;
   font-size: 12px;
   gap: 4px;
+  transition: transform 0.15s ease;  /* ✅ slight scale on click feel */
 }
 
-/* ✅ user info sits on bottom left of video */
+.reel_action_btn:active {
+  transform: scale(1.2);
+}
+
+/* ✅ User info bottom left */
 .reel_info {
   position: absolute;
   bottom: 55px;
@@ -100,18 +127,55 @@
   border-radius: 20px;
   cursor: pointer;
   font-size: 13px;
+  transition: background 0.2s ease;  /* ✅ hover effect */
+}
+
+.reel_subscribe_btn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .reel_description {
   font-size: 13px;
   max-width: 220px;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);  /* ✅ readable over bright videos */
 }
 
+/* ✅ Play/Pause flash icon centered on video */
+.reel_play_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: none;
+  animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  60%  { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+}
+
+/* ✅ Mobile full screen */
 @media (max-width: 768px) {
   .reel_video_wrapper {
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     border-radius: 0;
   }
-}
 
+  .reel_item {
+    height: 100dvh;
+  }
+}
