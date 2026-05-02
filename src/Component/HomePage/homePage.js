@@ -1,11 +1,10 @@
 import React from "react";
 import "./homePage.css";
 import { reelsData } from "../Reels/reels";
-import { Link, useNavigate, } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomePage = ({ sideNavbar }) => {
-  const navigate = useNavigate(); // ✅ kept here, used in ShortsRow
+  const navigate = useNavigate();
 
   const options = [
     "DD News", "News", "Film Criticisms", "Twenty20 Cricket", "Music",
@@ -81,7 +80,6 @@ const HomePage = ({ sideNavbar }) => {
     { id: 62, thumbnail: "https://picsum.photos/seed/aurora50/320/180", title: "Northern Lights", duration: "15:00", channel: "ArcticVision" },
   ];
 
-  // ✅ FIXED: onClick navigates with reelId so correct reel plays
   const ShortsRow = ({ data, title }) => (
     <div className="homePage_shortsSection">
       <div className="homePage_shortsHeader">
@@ -108,9 +106,10 @@ const HomePage = ({ sideNavbar }) => {
     </div>
   );
 
+  // ✅ FIXED: /watch/${video.id} changed to /video/${video.id}
   const VideoCard = ({ video }) => (
-    <div key={video.id} className="youtube_thumbnailBox">
-      <Link to={`/watch/${video.id}`} className="youtube_thumbnailWrapper">
+    <div className="youtube_thumbnailBox">
+      <Link to={`/video/${video.id}`} className="youtube_thumbnailWrapper">
         <img src={video.thumbnail} alt={video.title} className="youtube_thumbnailPic" />
         <div className="youtube_timingThumbnail">{video.duration}</div>
       </Link>
