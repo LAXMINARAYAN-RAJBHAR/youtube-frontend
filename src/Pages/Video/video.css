@@ -197,14 +197,13 @@
 
 
 /* _____________________________________________________ */
-.videoSuggestions{
-    width: 100%;
-    max-width: 406px;
-    padding: 10px 15px;
-    gap: 15px;
-    color: White;
-    display: flex;
-    flex-direction: column;
+.videoSuggestions {
+  height: 100vh;        /* or a fixed value like 600px */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.videoSuggestions::-webkit-scrollbar {
+  display: none;
 }
 
 .videoSuggestionsBlock{

@@ -94,7 +94,8 @@ const Video = () => {
 
   if (!video) return <p style={{ color: "white", padding: "20px" }}>Video not found</p>;
 
-  const suggestions = videos.filter((v) => v.id !== video.id).slice(0, 10);
+  // const suggestions = videos.filter((v) => v.id !== video.id).slice(0, 10);
+  const suggestions = videos.filter((v) => v.id !== video.id);
 
   return (
     // ✅ outer div is "video" not "video_player_wrapper"
