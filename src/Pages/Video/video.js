@@ -130,7 +130,7 @@ const Video = () => {
             src={video.src}
             controls
             autoPlay
-            muted
+            unmuted
             className="video_youtube_video"
             onEnded={handleVideoEnd}
             preload="auto"
