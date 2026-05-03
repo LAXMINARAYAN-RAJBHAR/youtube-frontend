@@ -112,7 +112,7 @@ const Video = () => {
             <button className="video_nav_btn" onClick={() => navigate(`/video/${prevVideo.id}`)}>
               ⏮ Prev
             </button>
-            <span className="video_counter">{currentIndex + 1} / {videos.length}</span>
+            {/* <span className="video_counter">{currentIndex + 1} / {videos.length}</span> */}
             <div className="video_autoplay_toggle">
               <span>Autoplay</span>
               <div className={`toggle_switch ${autoPlay ? "on" : "off"}`} onClick={() => setAutoPlay(!autoPlay)}>
