@@ -138,7 +138,7 @@ const Video = () => {
         </div>
 
         {/* ── UP NEXT PREVIEW ── */}
-        {/* <Link to={`/video/${nextVideo.id}`} className="next_video_preview" style={{ textDecoration: "none" }}>
+        { <Link to={`/video/${nextVideo.id}`} className="next_video_preview" style={{ textDecoration: "none" }}>
           <span className="next_video_label">▶ Up Next</span>
           <img src={nextVideo.thumbnail} alt={nextVideo.title} className="next_video_thumb" />
           <div className="next_video_info">
@@ -146,7 +146,7 @@ const Video = () => {
             <div className="next_video_channel">{nextVideo.channel}</div>
             <div className="next_video_duration">{nextVideo.duration}</div>
           </div>
-        </Link> */}
+        </Link> }
 
         {/* ── VIDEO INFO ── */}
         <div className="video_youtubeAbout">
