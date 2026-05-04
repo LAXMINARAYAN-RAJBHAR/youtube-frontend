@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/rollamroll-frontend/static/css/main.d56bd676.css",
-    "main.js": "/rollamroll-frontend/static/js/main.d593e07d.js",
+    "main.js": "/rollamroll-frontend/static/js/main.e92d10fc.js",
     "static/js/453.f044db20.chunk.js": "/rollamroll-frontend/static/js/453.f044db20.chunk.js",
     "static/media/mylogo.png": "/rollamroll-frontend/static/media/mylogo.3248daf684c8f51bb139.png",
     "index.html": "/rollamroll-frontend/index.html",
     "main.d56bd676.css.map": "/rollamroll-frontend/static/css/main.d56bd676.css.map",
-    "main.d593e07d.js.map": "/rollamroll-frontend/static/js/main.d593e07d.js.map",
+    "main.e92d10fc.js.map": "/rollamroll-frontend/static/js/main.e92d10fc.js.map",
     "453.f044db20.chunk.js.map": "/rollamroll-frontend/static/js/453.f044db20.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d56bd676.css",
-    "static/js/main.d593e07d.js"
+    "static/js/main.e92d10fc.js"
   ]
 }
