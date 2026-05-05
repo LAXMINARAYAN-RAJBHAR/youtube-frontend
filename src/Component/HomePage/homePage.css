@@ -12,6 +12,7 @@
 }
 
 .homePage_options {
+  margin-bottom: 0;
   display: flex;
   position: fixed;
   top: 56px;
@@ -63,11 +64,13 @@
   cursor: pointer;
 }
 .home_mainPage {
+  margin-top: 0;
+  padding-top: 0px;
   display: block;
   box-sizing: border-box;
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
-  padding: 90px 20px 20px 20px;
+  padding: 50px 20px 20px 20px;
   width: 100%;
   margin-left: 270px; /* ✅ pushes content after sidebar */
   width: calc(100% - 270px); /* ✅ takes remaining width */
