@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/rollamroll-frontend/static/css/main.5eec5c0d.css",
-    "main.js": "/rollamroll-frontend/static/js/main.d593e07d.js",
+    "main.css": "/rollamroll-frontend/static/css/main.f3a309fe.css",
+    "main.js": "/rollamroll-frontend/static/js/main.138c0a7d.js",
     "static/js/453.f044db20.chunk.js": "/rollamroll-frontend/static/js/453.f044db20.chunk.js",
     "static/media/mylogo.png": "/rollamroll-frontend/static/media/mylogo.3248daf684c8f51bb139.png",
     "index.html": "/rollamroll-frontend/index.html",
-    "main.5eec5c0d.css.map": "/rollamroll-frontend/static/css/main.5eec5c0d.css.map",
-    "main.d593e07d.js.map": "/rollamroll-frontend/static/js/main.d593e07d.js.map",
+    "main.f3a309fe.css.map": "/rollamroll-frontend/static/css/main.f3a309fe.css.map",
+    "main.138c0a7d.js.map": "/rollamroll-frontend/static/js/main.138c0a7d.js.map",
     "453.f044db20.chunk.js.map": "/rollamroll-frontend/static/js/453.f044db20.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5eec5c0d.css",
-    "static/js/main.d593e07d.js"
+    "static/css/main.f3a309fe.css",
+    "static/js/main.138c0a7d.js"
   ]
 }
