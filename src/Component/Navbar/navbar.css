@@ -65,33 +65,25 @@
 }
 /* Logo Text */
 .logoText {
-  color: #fff;
+  display: flex;
+  align-items: center;
   font-weight: bold;
   font-size: 20px;
-  animation: neonPulse 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes neonPulse {
-  from { text-shadow: 0 0 5px #ff4e50, 0 0 10px #ff4e50; }
-  to   { text-shadow: 0 0 20px #f9d423, 0 0 40px #f9d423, 0 0 60px #f9d423; }
-}
-.logoText span {
+.logoChar {
   display: inline-block;
   color: white;
-  font-weight: bold;
-  font-size: 20px;
-  animation: waveBounce 1.2s ease-in-out infinite;
+  animation: rollLoop 3s ease-in-out infinite;
 }
 
-@keyframes waveBounce {
-  0%, 100% { transform: translateY(0);    color: white; }
-  50%       { transform: translateY(-6px); color: #f9d423; }
-}
-.navbar-logo {
-  height: 50px;
-  border-radius: 50%;
-  object-fit: contain;
-  cursor: pointer;
+@keyframes rollLoop {
+  0%   { transform: translateY(0) rotate(0deg);    color: white; }
+  20%  { transform: translateY(-8px) rotate(-15deg); color: #f9d423; }
+  40%  { transform: translateY(0) rotate(15deg);   color: #ff4e50; }
+  60%  { transform: translateY(-4px) rotate(-8deg); color: #a855f7; }
+  80%  { transform: translateY(0) rotate(0deg);    color: #00c6ff; }
+  100% { transform: translateY(0) rotate(0deg);    color: white; }
 }
 
 
