@@ -194,11 +194,12 @@
   text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 30px #ff00ff;
 }
 
+/* ✅ Remove internal padding from shorts header too */
 .homePage_shortsHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 8px 12px 8px;
+  padding: 0 0 12px 0;  /* ← removed left padding */
 }
 
 .homePage_shortsTitle {
@@ -283,11 +284,12 @@
 
 /* Reels Section Modification Poertion CSS */
 
+/* ✅ Remove internal padding from shorts row — let parent handle left alignment */
 .homePage_shortsRow {
   display: flex;
   gap: 5px;
   overflow-x: auto;
-  padding: 0 8px 8px 8px;
+  padding: 0 0 8px 0;   /* ← removed left/right padding */
   scrollbar-width: none;
   width: 100%;
   justify-content: space-between;
