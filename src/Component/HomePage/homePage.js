@@ -145,7 +145,7 @@ const HomePage = ({ sideNavbar }) => {
           const start = rowIndex * 5;
           const end = start + 9;
           const videoStart = rowIndex * 8;
-          const videoEnd = videoStart + 8;
+          const videoEnd = videoStart + 12;
 
           return (
             <React.Fragment key={rowIndex}>

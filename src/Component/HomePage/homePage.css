@@ -64,8 +64,6 @@
   cursor: pointer;
 }
 .home_mainPage {
-  margin-top: 0;
-  padding-top: 0px;
   display: block;
   box-sizing: border-box;
   gap: 10px;
@@ -176,12 +174,19 @@
   background-color: #555;  /* ✅ grey fallback when image fails to load */
 }
 .youtube_ChannelName {
-  font-size: 12px;
-  margin: 0;
-  font-weight: bold;
-  color: #00ffff;
-  text-shadow: 0 0 5px #160303, 0 0 10px #00ffff, 0 0 20px #00ffff;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-size: 13px;
+  margin-top: 6px;
+  text-align: center;
+
+  /* ✅ Gradient text */
+  background: linear-gradient(90deg, #f9d423, #ff4e50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* ✅ Highlight glow effect */
+  filter: drop-shadow(0 0 6px rgba(255, 100, 50, 0.7));
+  font-weight: 600;
 }
 
 .youtube_ChannelName:hover {
@@ -261,10 +266,19 @@
 }
 
 .homePage_shortUser {
-  color: #aaa;
   font-size: 13px;
   margin-top: 6px;
   text-align: center;
+
+  /* ✅ Gradient text */
+  background: linear-gradient(90deg, #f9d423, #ff4e50);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* ✅ Highlight glow effect */
+  filter: drop-shadow(0 0 6px rgba(255, 100, 50, 0.7));
+  font-weight: 600;
 }
 
 /* Reels Section Modification Poertion CSS */
