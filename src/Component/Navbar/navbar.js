@@ -48,15 +48,19 @@ const Navbar = ({ setSideNavbarFunc, sideNavbar }) => {
           <ListIcon sx={{ color: "white" }} />
         </div>
         <Link to="/" className="navbar-logo-link">
-  <img src={MyLogo} alt="App Logo" className="mylogo" />
-  <span className="logoText">
-    {"RollamRoll".split("").map((char, i) => (
-      <span key={i} className="logoChar" style={{ animationDelay: `${i * 0.1}s` }}>
-        {char}
-      </span>
-    ))}
-  </span>
-</Link>
+          <img src={MyLogo} alt="App Logo" className="mylogo" />
+          <span className="logoText">
+            {"RollamRoll".split("").map((char, i) => (
+              <span
+                key={i}
+                className="logoChar"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+        </Link>
       </div>
 
       {/* MIDDLE */}
